@@ -1,0 +1,14 @@
+   /*
+    * Scanner in = new Scanner(System.in); Trie medsTrie = new Trie();
+    * 
+    * System.out.print("Enter a string: "); String word =
+    * in.nextLine().toLowerCase();
+    * 
+    * medsTrie.insertEntry(word);
+    * 
+    * System.out.print("Search: "); String search = in.nextLine().toLowerCase();
+    * in.close();
+    * 
+    * ArrayList<String> searchResults = medsTrie.searchTrie(search); for (String
+    * result : searchResults) { System.out.println(result); }
+    */
