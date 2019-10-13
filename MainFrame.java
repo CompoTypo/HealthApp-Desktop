@@ -1,23 +1,26 @@
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
-// import java.io.*;
-// import java.util.Scanner;
-// import java.util.ArrayList;
 
-public class MainFrame extends JFrame {// inheriting JFrame
-   JFrame f;
+public class MainFrame extends JFrame implements ActionListener{// inheriting JFrame
    private static final long serialVersionUID = 1L;
-
+   private JButton b;
+   private static LoginFrame login;
    MainFrame() {
-      JButton b = new JButton("click");// create button
-      b.setBounds(130, 100, 100, 40);
+      b = new JButton("Submit");// create button
+      b.addActionListener(this);
       add(b);// adding button on frame
-
-      setSize(400, 500);
-      setLayout(null);
-      setVisible(true);
+      this.setLayout(new FlowLayout());
+  	  setSize(1920,1080);
+  	  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  	  setResizable(false);
+  	  setVisible(true);
    }
-
-   public static void main(String[] args) {
-      new MainFrame();
+   public void actionPerformed(ActionEvent e) {
+	   if(e.getSource()==b) {
+		   System.out.println("a");
+	   }
    }
 }
