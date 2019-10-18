@@ -1,11 +1,14 @@
+import java.util.LinkedList;
 
 public class Patient extends User {
 
 	private int height;
-	private int weight;
+	private double weight;
 	private double bodyMassIndex;
 	private String bloodPressure;
 	private String sex;
+	private String race;
+	private LinkedList<Doctor> doctorList = new LinkedList<Doctor>();
 
 	Patient() 
 	{
@@ -15,15 +18,16 @@ public class Patient extends User {
 		bloodPressure = "";
 		bodyMassIndex = 0;
 		sex = "";
+		race = "";
 	}
 	
-	Patient(String name, int age, int height, int weight, String bloodPressure, String sex) 
+	Patient(String name, int age, int height, double weight, String bloodPressure, String sex, String race) 
 	{
 		super(name, age);
 		this.height = height;
-		this.bloodPressure = bloodPressure;
 		this.weight = weight;
 		this.sex = sex;
+		this.race = race;
 	}
 
 	public int getHeight() 
@@ -36,12 +40,12 @@ public class Patient extends User {
 		this.height = height;
 	}
 
-	public int getWeight() 
+	public double getWeight() 
 	{
 		return weight;
 	}
 
-	public void setWeight(int weight) 
+	public void setWeight(double weight) 
 	{
 		this.weight = weight;
 	}
@@ -76,11 +80,30 @@ public class Patient extends User {
 		this.sex = sex;
 	}
 
+	public String getRace() {
+		return race;
+	}
+
+	public void setRace(String race) {
+		this.race = race;
+	}
+
+	public LinkedList<Doctor> getPatientList() {
+		return doctorList;
+	}
+
+	public void setPatientList(LinkedList<Doctor> doctorList) {
+		this.doctorList = doctorList;
+	}
+	
 	@Override
 	public String toString() {
-		return "Patient [height=" + height + ", weight=" + weight + ", bloodPressure=" + bloodPressure
-				+ ", bodyMassIndex=" + bodyMassIndex + ", sex=" + sex + ", toString()=" + super.toString() + "]";
+		return "Patient [height=" + height + ", weight=" + weight + ", bodyMassIndex=" + bodyMassIndex
+				+ ", bloodPressure=" + bloodPressure + ", sex=" + sex + ", race=" + race + ", toString()="
+				+ super.toString() + "]\n";
 	}
+
+
 
 
 }
