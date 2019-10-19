@@ -1,9 +1,10 @@
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import javax.swing.*;
-import java.security.*;
-import java.nio.charset.StandardCharsets;
 
 public class LoginFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -11,22 +12,6 @@ public class LoginFrame extends JFrame implements ActionListener {
 	private JButton login;
 	private JLabel label1;
 	private JLabel label2;
-
-	private static String hashPassWord(String w) throws NoSuchAlgorithmException {
-		final MessageDigest digest = MessageDigest.getInstance("SHA-256");
-		final byte[] hashbytes = digest.digest(w.getBytes(StandardCharsets.UTF_8));
-		return bytesToHex(hashbytes);
-	}
-
-	private static String bytesToHex(byte[] hash) {
-		StringBuffer hexString = new StringBuffer();
-		for (int i = 0; i < hash.length; i++) {
-			String hex = Integer.toHexString(0xff & hash[i]);
-			if(hex.length() == 1) hexString.append('0');
-				hexString.append(hex);
-		}
-		return hexString.toString();
-	}
 
 	public static void main(String[] args) {
 		new LoginFrame();
@@ -60,32 +45,16 @@ public class LoginFrame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == login) {
 			String u = username.getText();
-			String p = password.getText();
-/* ***for testing purposes***
-			if (u.equals("a") && p.equals("b")) {
-				System.out.println("You logged in");
-				this.dispose();
-				new MainFrame();
-			} else {
-				System.out.println("Incorrect");
-			}
-*/
-			
-			String res;
-			try { 
-				res = hashPassWord(p); 
-				for(int i = 0; i < res.length(); i++) {
-					System.out.print(res.charAt(i)); 
-				} 
-				System.out.println("You logged in");
-				this.dispose();
-				new MainFrame();
-			} 
-			catch (Exception he) { 
-				// reset login attempt
-				System.out.println(he); 
-			} 
+			String p = username.getText();
 
+			Auth services = new Auth();
+			Map<String, String> user = services.Authenticate(u, p);
+			for (Entry<String, String> entry : user.entrySet()) {
+				System.out.println(entry);
+			}
+		
+			this.dispose();
+			new MainFrame();
 
 			System.out.println(); 
 		}

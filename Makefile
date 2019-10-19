@@ -2,7 +2,7 @@ build:
 	javac *.java
 
 exec:
-	java LoginFrame
+	java LoginFrame 
 
 clean:
 	rm *.class
