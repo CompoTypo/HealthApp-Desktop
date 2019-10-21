@@ -29,3 +29,4 @@ Discord
 1. Antonio Herrera
 2. Kevin Nguyen
 3. Andrew Jensen
+4. Daschel Cooper
