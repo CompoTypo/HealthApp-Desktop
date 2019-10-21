@@ -1,6 +1,8 @@
 create table users (
     UID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT NOT NULL,
     Uname TEXT NOT NULL,
-    Email TEXT,
+    Email TEXT NOT NULL,
     Hash TEXT NOT NULL
 );
+

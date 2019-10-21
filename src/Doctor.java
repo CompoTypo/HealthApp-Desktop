@@ -5,18 +5,17 @@ public class Doctor extends User {
 	private String specialist;
 	private LinkedList<Patient> patientList = new LinkedList<Patient>();
 	private int numPatients;
-	
+
 	public Doctor() {
 		super();
 		specialist = "";
 		numPatients = 0;
 	}
 
-	public Doctor(String name, int age, String specialist, LinkedList<Patient> patientList, int numPatients) {
-		super(name, age);
+	public Doctor(String fn, String ln, String un, int age, String specialist) {
+		super(fn, ln, un, age);
 		this.specialist = specialist;
-		this.patientList = patientList;
-		this.numPatients = numPatients;
+		numPatients = 0;
 	}
 
 	public String getSpecialist() {
@@ -36,36 +35,20 @@ public class Doctor extends User {
 	}
 
 	public int getNumPatients() {
-		return numPatients;
+		return patientList.size();
 	}
 
 	public void setNumPatients(int numPatients) {
-		this.numPatients = numPatients;
+		this.numPatients = patientList.size();
 	}
-	
-	public void addPatient(Patient newPatient)
-	{
+
+	public void addPatient(Patient newPatient) {
 		patientList.add(newPatient);
 		numPatients++;
 	}
-	
-	public void printAllPatients()
-	{
-		/*
-		for (int i = 0; i < numPatients; i++)
-		{
-			
-		}
-		*/
-		
+
+	public void printAllPatients() {
 		System.out.println(patientList);
 	}
-
-	@Override
-	public String toString() {
-		return "Doctor [specialist=" + specialist + ", patientList=" + patientList + ", numPatients=" + numPatients
-				+ ", toString()=" + super.toString() + "]\n";
-	}
-	
 
 }

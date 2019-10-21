@@ -20,9 +20,8 @@ public class Auth {
     private static final String apiURL = "http://127.0.0.1";
     private static final String apiPort = ":8000";
 
-    private boolean checkForSemi(String w) {
-        Pattern p = Pattern.compile(";");
-        Matcher m = p.matcher(w);
+    private boolean checkForSemi(String w) { 
+        Matcher m = Pattern.compile(";").matcher(w);
         return m.matches();
     }
 

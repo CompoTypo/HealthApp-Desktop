@@ -1,8 +1,8 @@
 build:
-	javac *.java
+	javac ./src/*.java -d ./build/
 
 exec:
-	java LoginFrame 
+	java -cp ./build/ LoginFrame
 
 clean:
-	rm *.class
+	rm -rf ./build/
