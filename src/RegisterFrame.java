@@ -103,8 +103,8 @@ public class RegisterFrame extends JFrame implements ActionListener {
     }
 
     private void PatientForm() {
-        this.hlabel = new JLabel("Enter height: ");
-        this.wlabel = new JLabel("Enter weight: ");
+        this.hlabel = new JLabel("Enter height (inches): ");
+        this.wlabel = new JLabel("Enter weight (pounds): ");
         this.slabel = new JLabel("Enter sex: ");
         this.rlabel = new JLabel("Enter race: ");
         this.height = new JTextField("", 16);
@@ -177,9 +177,9 @@ public class RegisterFrame extends JFrame implements ActionListener {
 
             // Patient testBoi = new Patient(f, l, u, e);
             System.out.println();
-            if (this.accountType = "doctor") {
+            if (this.accountType.equals("doctor") ) {
                 
-            } else if (this.accountType = "patient") {
+            } else if (this.accountType.equals("patient") ) {
 
             }
             this.dispose();

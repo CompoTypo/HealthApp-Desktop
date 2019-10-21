@@ -2,8 +2,8 @@ import java.util.LinkedList;
 
 public class Patient extends User {
 
-	private double height;
-	private double weight;
+	private double height; // In Inches
+	private double weight; // In Pounds
 	private double bmi;
 	private String sex;
 	private String race;
