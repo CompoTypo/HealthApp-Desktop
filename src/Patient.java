@@ -19,7 +19,7 @@ public class Patient extends User {
 		this.race = "";
 	}
 
-	Patient(String fn, String ln, String un, int age, int height, double weighte, String sex, String race) {
+	Patient(String fn, String ln, String un, int age, int height, double weight, String sex, String race) {
 		super(fn, ln, un, age);
 		this.height = height;
 		this.weight = weight;
@@ -34,6 +34,7 @@ public class Patient extends User {
 
 	public void setHeight(double height) {
 		this.height = height;
+		calculateBodyMassIndex();
 	}
 
 	public double getWeight() {
@@ -41,14 +42,15 @@ public class Patient extends User {
 	}
 
 	public void setWeight(double weight) {
-		this.weight = vitalsList.getLast().getWeight();
+		this.weight = weight;
+		calculateBodyMassIndex();
 	}
 
 	public double getBodyMassIndex() {
 		return this.bmi;
 	}
 
-	public void calculateBodyMassIndex() {
+	private void calculateBodyMassIndex() {
 		this.bmi = (this.weight * 703.0) / (this.height * this.height);
 	}
 
