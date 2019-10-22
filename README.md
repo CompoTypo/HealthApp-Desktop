@@ -30,3 +30,6 @@ Discord
 2. Kevin Nguyen
 3. Andrew Jensen
 4. Daschel Cooper
+5. Joseph Ngyuen
+6. Henry Schliebe
+7. Duc Phan
