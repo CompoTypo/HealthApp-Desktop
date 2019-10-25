@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.*;
@@ -21,7 +20,7 @@ public class Auth {
     private static final String apiURL = "http://127.0.0.1";
     private static final String apiPort = ":8000";
 
-    private boolean checkForSemi(String w) {
+    private boolean checkForSemi(String w) { 
         Pattern p = Pattern.compile(";");
         Matcher m = p.matcher(w);
         return m.matches();
@@ -93,6 +92,7 @@ public class Auth {
 
         try {
             String h = hashPassword(p);
+            System.out.println(h);
             Map<String, String> params = new HashMap<>();
             params.put("Uname", u);
             params.put("Hash", h);

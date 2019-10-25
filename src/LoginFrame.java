@@ -8,8 +8,9 @@ import javax.swing.*;
 
 public class LoginFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
-	private JTextField username, password;
-	private JButton login;
+	private JTextField username;
+	private JPasswordField password;
+	private JButton login, register;
 	private JLabel label1;
 	private JLabel label2;
 
@@ -20,12 +21,15 @@ public class LoginFrame extends JFrame implements ActionListener {
 	LoginFrame() {
 		label1 = new JLabel("Username: ");
 		label2 = new JLabel("Password: ");
+
 		username = new JTextField("", 20);
 		password = new JPasswordField("", 20);
 		login = new JButton("Login");
-		login.addActionListener(this);
+		register = new JButton("Register");
 		username.addActionListener(this);
 		password.addActionListener(this);
+		login.addActionListener(this);
+		register.addActionListener(this);
 
 		this.setTitle("Please enter your login info");
 		this.setLayout(new FlowLayout());
@@ -39,25 +43,30 @@ public class LoginFrame extends JFrame implements ActionListener {
 		add(label2);
 		add(password);
 		add(login);
+		add(register);
 		setVisible(true);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == login) {
 			String u = username.getText();
-			String p = username.getText();
+			String p = new String(password.getPassword());
 
 			Auth services = new Auth();
 			Map<String, String> user = services.Authenticate(u, p);
 			for (Entry<String, String> entry : user.entrySet()) {
-				System.out.println(entry);
+				
 			}
 		
 			this.dispose();
 			new MainFrame();
 
 			System.out.println(); 
+		} else if (e.getSource() == register) {
+			this.dispose();
+			new RegisterFrame();
 		}
+		
 	}
 }
 
