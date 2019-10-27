@@ -11,7 +11,7 @@ public class MainFrame extends JFrame implements ActionListener{// inheriting JF
    private JButton b;
    private static LoginFrame login;
    MainFrame() {
-      b = new JButton("Submit");// create button
+      b = new JButton("WTG");// create button
       b.addActionListener(this);
       add(b);// adding button on frame
       this.setLayout(new FlowLayout());

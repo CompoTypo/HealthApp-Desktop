@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class PatientData {
     private double height; // In Inches
     private double weight; // In Pounds
@@ -55,11 +57,13 @@ public class PatientData {
 		this.bpReadings = bpReadings;
 	}
 
-	public Private getArrayList() {
-		return ArrayList;
+	public ArrayList<TestData> getTests() {
+		return tests;
 	}
 
-	public void setArrayList(Private arrayList) {
-		ArrayList = arrayList;
+	public void setTests(ArrayList<TestData> tests) {
+		this.tests = tests;
 	}
+
+
 }

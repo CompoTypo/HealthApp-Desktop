@@ -167,8 +167,8 @@ public class RegisterFrame extends JFrame implements ActionListener {
             String d = day.getText();
             String m = month.getText();
             String y = year.getText();
-            String p = new String(getPassword());
-            String pc = new String(getPassword());
+            String p = new String(password.getPassword());
+            String pc = new String(confPassword.getPassword());
 
             Matcher reg = Pattern.compile("^(.+)@(.+)$").matcher(e);
             System.out.println(reg.matches());

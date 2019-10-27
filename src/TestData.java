@@ -1,5 +1,5 @@
 import java.util.Date;
-
+import java.util.Map;
 
 public class TestData {
     Map<String, String> results;

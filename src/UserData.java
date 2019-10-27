@@ -11,7 +11,7 @@ public class UserData {
     private String race;
     private boolean isDoctor;
     private PatientData pd; // !!  optional, constructs safe invalid object by default
-    private MdData md; // !!  optional, constructs safe invalid object by default   
+    private DoctorData md; // !!  optional, constructs safe invalid object by default   
 
 	public String getUid() {
 		return uid;
@@ -93,11 +93,11 @@ public class UserData {
 		this.pd = pd;
 	}
 
-	public MdData getMd() {
+	public DoctorData getDoctor() {
 		return md;
 	}
 
-	public void setMd(MdData md) {
+	public void setDoctor(DoctorData md) {
 		this.md = md;
 	}
 }

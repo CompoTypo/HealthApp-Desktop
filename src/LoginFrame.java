@@ -56,7 +56,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 			Auth services = new Auth();
 			Map<String, String> user = services.Authenticate(u, p);
 			for (Entry<String, String> entry : user.entrySet()) {
-				System.out.println(entry.getKey(), entry.getValue());	
+				System.out.println(entry.getKey() + ":" + entry.getValue());	
 			}
 		
 			this.dispose();
