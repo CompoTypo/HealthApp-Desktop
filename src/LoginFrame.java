@@ -21,7 +21,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 	LoginFrame() {
 		label1 = new JLabel("Username: ");
 		label2 = new JLabel("Password: ");
-
+		
 		username = new JTextField("", 20);
 		password = new JPasswordField("", 20);
 		login = new JButton("Login");
