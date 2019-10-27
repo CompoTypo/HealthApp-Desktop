@@ -50,13 +50,13 @@ public class LoginFrame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == login) {
 			String u = username.getText();
-			String p = password.getPassword().toString();
+			String p = new String(password.getPassword());
 
 
 			Auth services = new Auth();
 			Map<String, String> user = services.Authenticate(u, p);
 			for (Entry<String, String> entry : user.entrySet()) {
-				
+				System.out.println(entry.getKey(), entry.getValue());	
 			}
 		
 			this.dispose();

@@ -1,19 +1,10 @@
-public class Bp {
-	private int sys;
-	private int dia;
-    private int pulse;
-    
-    Bp() {
-        this.sys = 0;
-        this.dia = 0;
-        this.pulse = 0;
-    }
+import java.util.Date;
 
-    Bp(int s, int d, int p) {
-        this.sys = s;
-        this.dia = d;
-        this.pulse = p;        
-    }
+public class BpData {
+    private int sys;
+    private int dia;
+    private int pulse;
+    private Date bpTaken;
 
     public int getSys() {
         return sys;
@@ -37,5 +28,13 @@ public class Bp {
 
     public void setPulse(int pulse) {
         this.pulse = pulse;
+    }
+
+    public Date getBpTaken() {
+        return bpTaken;
+    }
+
+    public void setBpTaken(Date bpTaken) {
+        this.bpTaken = bpTaken;
     }
 }

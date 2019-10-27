@@ -1,4 +1,5 @@
 const http = require('http');
+const fs = require('fs');
 const sqlite = require('sqlite3').verbose();
 const port = 8000;
 const hostname = "127.0.0.1";
@@ -36,8 +37,15 @@ processLogin = (request, response) => {
   });
 }
 
+sendAdminLogin = (request, response) => {
+  response.end(fs.readFileSync("./html/index.html"), fs.readFileSync("./html/styles.css"), fs.readFileSync("./html/assets/img/red-cross.png"));
+}
+
 const server = http.createServer((req, res) => {
   if (req.method == 'GET') {
+    //if (req.headers.host === hostname + ":" + port) {
+      sendAdminLogin(req, res);
+    //}
   } else if (req.method == 'PUT') {
     if (req.url === '/login') {
       let b = processLogin(req, res);

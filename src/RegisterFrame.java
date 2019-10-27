@@ -167,8 +167,8 @@ public class RegisterFrame extends JFrame implements ActionListener {
             String d = day.getText();
             String m = month.getText();
             String y = year.getText();
-            String p = password.getPassword().toString();
-            String pc = confPassword.getPassword().toString();
+            String p = new String(getPassword());
+            String pc = new String(getPassword());
 
             Matcher reg = Pattern.compile("^(.+)@(.+)$").matcher(e);
             System.out.println(reg.matches());
@@ -177,11 +177,6 @@ public class RegisterFrame extends JFrame implements ActionListener {
 
             // Patient testBoi = new Patient(f, l, u, e);
             System.out.println();
-            if (this.accountType.equals("doctor") ) {
-                
-            } else if (this.accountType.equals("patient") ) {
-
-            }
             this.dispose();
             new LoginFrame();
         } 
