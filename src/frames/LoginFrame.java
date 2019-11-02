@@ -3,10 +3,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.regex.Pattern;
 
 import javax.swing.*;
 
 public class LoginFrame extends JFrame implements ActionListener {
+	private	Auth services = new Auth();
 	private static final long serialVersionUID = 1L;
 	private JTextField username;
 	private JPasswordField password;
@@ -52,17 +54,19 @@ public class LoginFrame extends JFrame implements ActionListener {
 			String u = username.getText();
 			String p = new String(password.getPassword());
 
+            if (!Pattern.matches("[a-zA-Z]{2,20}", u)) {
+                System.out.println("weird year to be born in");
+            } else if (!Pattern.matches("[a-zA-Z]{2,20}", p)) {
+                System.out.println("Error lastname");
+            }		
 
-			Auth services = new Auth();
 			Map<String, String> user = services.Authenticate(u, p);
 			for (Entry<String, String> entry : user.entrySet()) {
 				System.out.println(entry.getKey() + ":" + entry.getValue());	
 			}
 		
 			this.dispose();
-			new MainFrame();
-
-			System.out.println(); 
+			new HomeFrame();
 		} else if (e.getSource() == register) {
 			this.dispose();
 			new RegisterFrame();

@@ -3,10 +3,15 @@ import java.util.Map;
 
 public class TestData {
     Map<String, String> results;
-    private Date bpTaken;
+    private Date testTaken;
+
+    TestData(Map<String, String> r, Date d) {
+        this.results = r;
+        this.testTaken = d;
+    }
 
     public Map<String, String> getResults() {
-        return results;
+        return this.results;
     }
 
     public void setResults(Map<String, String> results) {
@@ -14,10 +19,6 @@ public class TestData {
     }
 
     public Date getBpTaken() {
-        return bpTaken;
-    }
-
-    public void setBpTaken(Date bpTaken) {
-        this.bpTaken = bpTaken;
+        return this.testTaken;
     }
 }

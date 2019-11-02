@@ -7,7 +7,7 @@ public class DoctorData {
     private ArrayList<PatientData> patients;
 
 	public String getDegree() {
-		return degree;
+		return this.degree;
 	}
 
 	public void setDegree(String degree) {
@@ -15,7 +15,7 @@ public class DoctorData {
 	}
 
 	public ArrayList<String> getCredentials() {
-		return credentials;
+		return this.credentials;
 	}
 
 	public void setCredentials(ArrayList<String> credentials) {
@@ -23,7 +23,7 @@ public class DoctorData {
 	}
 
 	public String getSpecialty() {
-		return specialty;
+		return this.specialty;
 	}
 
 	public void setSpecialty(String specialty) {
@@ -31,7 +31,7 @@ public class DoctorData {
 	}
 
 	public ArrayList<PatientData> getPatients() {
-		return patients;
+		return this.patients;
 	}
 
 	public void setPatients(ArrayList<PatientData> patients) {

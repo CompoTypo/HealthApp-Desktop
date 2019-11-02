@@ -3,10 +3,12 @@ import java.util.Date;
 public class VitalsData {
     private float temp;
     private float weight;
-    private Date vitalsTaken;
+	private Date vitalsTaken;
+	
+
 
 	public float getTemp() {
-		return temp;
+		return this.temp;
 	}
 
 	public void setTemp(float temp) {
@@ -14,7 +16,7 @@ public class VitalsData {
 	}
 
 	public float getWeight() {
-		return weight;
+		return this.weight;
 	}
 
 	public void setWeight(float weight) {
@@ -22,10 +24,6 @@ public class VitalsData {
 	}
 
 	public Date getVitalsTaken() {
-		return vitalsTaken;
-	}
-
-	public void setVitalsTaken(Date vitalsTaken) {
-		this.vitalsTaken = vitalsTaken;
+		return this.vitalsTaken;
 	}
 }

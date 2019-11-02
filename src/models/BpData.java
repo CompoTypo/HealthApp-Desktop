@@ -6,8 +6,15 @@ public class BpData {
     private int pulse;
     private Date bpTaken;
 
+    BpData(int s, int d, int p) {
+        this.sys = s;
+        this.dia = d;
+        this.pulse = p;
+        this.bpTaken = new Date();
+    }
+
     public int getSys() {
-        return sys;
+        return this.sys;
     }
 
     public void setSys(int sys) {
@@ -15,7 +22,7 @@ public class BpData {
     }
 
     public int getDia() {
-        return dia;
+        return this.dia;
     }
 
     public void setDia(int dia) {
@@ -23,7 +30,7 @@ public class BpData {
     }
 
     public int getPulse() {
-        return pulse;
+        return this.pulse;
     }
 
     public void setPulse(int pulse) {
@@ -31,7 +38,7 @@ public class BpData {
     }
 
     public Date getBpTaken() {
-        return bpTaken;
+        return this.bpTaken;
     }
 
     public void setBpTaken(Date bpTaken) {

@@ -48,8 +48,15 @@ public class Bp {
 
 create table users (
     UID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name TEXT NOT NULL,
+	Fname TEXT NOT NULL,
+    Lname TEXT NOT NULL,
     Uname TEXT NOT NULL,
     Email TEXT NOT NULL,
     Hash TEXT NOT NULL
+    DOB DATE NOT NULL,
+	Sex TEXT,
+    Race TEXT,
+    Type TEXT NOT NULL
 );
+
+

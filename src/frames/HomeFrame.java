@@ -6,11 +6,11 @@ import javax.swing.*;
 
 // import jdk.javadoc.internal.tool.Main;
 
-public class MainFrame extends JFrame implements ActionListener{// inheriting JFrame
+public class HomeFrame extends JFrame implements ActionListener{// inheriting JFrame
    private static final long serialVersionUID = 1L;
    private JButton b;
    private static LoginFrame login;
-   MainFrame() {
+   HomeFrame() {
       b = new JButton("WTG");// create button
       b.addActionListener(this);
       add(b);// adding button on frame
