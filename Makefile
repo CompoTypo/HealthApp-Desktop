@@ -16,3 +16,6 @@ test:
 	javac ./src/test/*.java -d ./test/  
 	java ./test/* ./build/ -jar junit-4.10.jar
 
+serve:
+	node ./src/backend/aplite.js
+

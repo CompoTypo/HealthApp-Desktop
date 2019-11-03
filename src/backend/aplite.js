@@ -21,7 +21,7 @@ processLogin = (request, response) => {
       element = element.split('='); // split the pairs, creating a 2d arr
       elArr.push(element);                                           // . . . an array element
     });
-    queries.select("select distinct * from users where Uname=? AND Hash=?", [params[0][1], params[1][1]], response);
+    queries.select("select * from users where Uname=? and Hash=?", [elArr[0][1], elArr[1][1]], response);
     // at this point, `body` has the entire request body stored in it as a string
   });
 }

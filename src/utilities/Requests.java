@@ -18,15 +18,6 @@ public class Requests {
     private static final String apiURL = "http://127.0.0.1";
     private static final String apiPort = ":8000";
 
-<<<<<<< HEAD:src/Auth.java
-    private boolean checkForSemi(String w) { 
-        Pattern p = Pattern.compile(";");
-        Matcher m = p.matcher(w);
-        return m.matches();
-    }
-
-=======
->>>>>>> register:src/utilities/Requests.java
     private Map<String,String> splitToMap(String l) {
         Map<String, String> pairs = new HashMap<>();
         String[] rawPairs = l.split(",");
@@ -70,17 +61,6 @@ public class Requests {
     public Map<String,String> post(Map<String, String> p) {
         byte[] params = p.toString().getBytes(StandardCharsets.UTF_8);
         try {
-<<<<<<< HEAD:src/Auth.java
-            String h = hashPassword(p);
-            System.out.println(h);
-            Map<String, String> params = new HashMap<>();
-            params.put("Uname", u);
-            params.put("Hash", h);
-            Map<String, String> user = verifyUser(params);
-            return user;
-        } catch (NoSuchAlgorithmException e) {
-            System.out.println("NoSuchAlgorithmException: check dependencies jdk8+");
-=======
             URL url = new URL(apiURL + apiPort + "/register");
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             http.setDoInput(true);
@@ -105,7 +85,6 @@ public class Requests {
         } catch (IOException e) {
             System.out.println(e);
             return null;
->>>>>>> register:src/utilities/Requests.java
         }
     }
     

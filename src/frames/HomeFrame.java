@@ -1,7 +1,7 @@
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.Map;
 import javax.swing.*;
 
 // import jdk.javadoc.internal.tool.Main;
@@ -10,7 +10,7 @@ public class HomeFrame extends JFrame implements ActionListener{// inheriting JF
    private static final long serialVersionUID = 1L;
    private JButton b;
    private static LoginFrame login;
-   HomeFrame(user) {
+   HomeFrame(Map<String, String> user) {
       b = new JButton("WTG");// create button
       b.addActionListener(this);
       add(b);// adding button on frame
