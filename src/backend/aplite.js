@@ -1,26 +1,11 @@
+const queries = require('./queries');
 const http = require('http');
 const fs = require('fs');
-const sqlite = require('sqlite3').verbose();
 const port = 8000;
 const hostname = "127.0.0.1";
 
-const db = new sqlite.Database('./sqlite.db');
-
-getQuery = (sql, params, res) => {
-  db.get(sql, params, (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'text/plain');
-      console.log(result);
-      res.end(JSON.stringify(result));
-    }
-  });
-}
-
 sendAdminLogin = (request, response) => {
-  response.end(fs.readFileSync("./html/index.html"), fs.readFileSync("./html/styles.css"), fs.readFileSync("./html/assets/img/red-cross.png"));
+  response.end(fs.readFileSync("./html/index.html"));
 }
 
 processLogin = (request, response) => {
@@ -36,12 +21,13 @@ processLogin = (request, response) => {
       element = element.split('='); // split the pairs, creating a 2d arr
       elArr.push(element);                                           // . . . an array element
     });
-    getQuery("select distinct * from Users where Hash=?", elArr[1][1], response);
+    queries.select("select distinct * from users where Uname=? AND Hash=?", [params[0][1], params[1][1]], response);
     // at this point, `body` has the entire request body stored in it as a string
   });
 }
 
 registerUser = (request, response) => {
+  keyInserts = valInserts = ""; 
   let body = [];
   request.on('data', (chunk) => {
     body.push(chunk);
@@ -49,14 +35,15 @@ registerUser = (request, response) => {
     body = Buffer.concat(body).toString();
     body = body.substring(1, body.toString().length - 1).split(","); // trims brackets and divides each pair into . . .
     elArr = [];
-    body.forEach(element => {
+    body.forEach( (element, ind) => {
+      if (ind !== 0) {keyInserts += ", "; valInserts += ", "; }
       element = element.replace(/\s+/g, ''); // get rid of whitespace
       element = element.split('='); // split the pairs, creating a 2d arr
-      elArr.push(element);                                           // . . . an array element
+      elArr.push(element);
+      keyInserts += element[0]; valInserts += element[1];                                          // . . . an array element
     });
-    getQuery("insert into users (Fname, Lname, Uname, Email, Hash, DOB, Sex, Race, Type) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", 
-      [elArr[0][1], elArr[1][1], elArr[2][1], elArr[3][1], elArr[4][1], elArr[5][1], elArr[6][1], elArr[7][1], elArr[8][1], elArr[9][1]], 
-      response);
+    sql = "insert into users (" + keyInserts + ") values (" + valInserts + ")";
+    queries.insert(sql, elArr, response);
     // at this point, `body` has the entire request body stored in it as a string
   });
 }

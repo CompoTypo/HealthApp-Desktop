@@ -52,8 +52,8 @@ create table users (
     Lname TEXT NOT NULL,
     Uname TEXT NOT NULL,
     Email TEXT NOT NULL,
-    Hash TEXT NOT NULL
-    DOB DATE NOT NULL,
+    Hash TEXT NOT NULL,
+    DOB TEXT NOT NULL,
 	Sex TEXT,
     Race TEXT,
     Type TEXT NOT NULL

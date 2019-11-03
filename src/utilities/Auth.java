@@ -53,10 +53,9 @@ public class Auth {
 
     public void Register(UserData newUser, String p) {
         try {
-            System.out.println("butts");
+            Map<String, String> params = new HashMap<>();
             String u = hashPassword(newUser.getUname());
             String h = hashPassword(p);
-            Map<String, String> params = new HashMap<>();
             params.put("Fname", newUser.getFirstname());
             params.put("Lname", newUser.getLastname());
             params.put("Uname", u);

@@ -66,7 +66,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 			}
 		
 			this.dispose();
-			new HomeFrame();
+			new HomeFrame(user);
 		} else if (e.getSource() == register) {
 			this.dispose();
 			new RegisterFrame();

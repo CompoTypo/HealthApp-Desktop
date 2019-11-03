@@ -182,7 +182,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
                 System.out.println("weird year to be born in");
             } else if (!Pattern.matches("[a-zA-Z]{2,20}", l)) {
                 System.out.println("Error lastname");
-            } else if (!Pattern.matches("[a-zA-Z0-9_]{0,20}", u)) {
+            } else if (!Pattern.matches("[a-zA-Z0-9_]{8,20}", u)) {
                 System.out.println("bad uname");
             } else if (!Pattern.matches("^(.+)@(.+)$", e)) {
                 System.out.println("Incorrect email");
@@ -202,8 +202,6 @@ public class RegisterFrame extends JFrame implements ActionListener {
                 cal.set(y, m, d, 0, 0, 0);
                 Date dob = cal.getTime();
                 UserData testBoi = new UserData(f, l, u, e, dob, s, r, this.acctType);
-                System.out.println(dob.toString());
-                services.Register(testBoi, p);
                 System.out.println();
                 this.dispose();
                 new LoginFrame();

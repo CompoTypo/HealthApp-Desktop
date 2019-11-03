@@ -664,16 +664,7 @@
       "version": "3.0.2"
     },
     "sqlite": "^3.0.3",
-    "sqlite3": {
-      "integrity": "sha512-RvqoKxq+8pDHsJo7aXxsFR18i+dU2Wp5o12qAJOV5LNcDt+fgJsc2QKKg3sIRfXrN9ZjzY1T7SNe/DFVqAXjaw==",
-      "requires": {
-        "nan": "^2.12.1",
-        "node-pre-gyp": "^0.11.0",
-        "request": "^2.87.0"
-      },
-      "resolved": "https://registry.npmjs.org/sqlite3/-/sqlite3-4.1.0.tgz",
-      "version": "4.1.0"
-    },
+    "sqlite3": "^4.1.0",
     "sshpk": {
       "integrity": "sha512-HXXqVUq7+pcKeLqqZj6mHFUMvXtOJt1uoUx09pFW6011inTMxqI8BA8PM95myrIyyKwdnzjdFjLiE6KBPVtJIg==",
       "requires": {
