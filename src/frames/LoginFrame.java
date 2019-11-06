@@ -55,9 +55,9 @@ public class LoginFrame extends JFrame implements ActionListener {
 			String p = new String(password.getPassword());
 
             if (!Pattern.matches("[a-zA-Z]{2,20}", u)) {
-                System.out.println("weird year to be born in");
+                System.out.println("nope");
             } else if (!Pattern.matches("[a-zA-Z]{2,20}", p)) {
-                System.out.println("Error lastname");
+                System.out.println("Error");
             }		
 
 			Map<String, String> user = services.Authenticate(u, p);
