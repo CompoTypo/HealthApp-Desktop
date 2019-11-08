@@ -59,7 +59,6 @@ public class Auth {
             params.put("Sex", newUser.getSex());
             params.put("Race", newUser.getRace());
             params.put("Type", newUser.getAcctType());
-            System.out.println("butts");
 
             Map<String, String> user = req.send(params, "POST", "/register");
         } catch (NoSuchAlgorithmException e) {
