@@ -1,12 +1,9 @@
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
 import javax.swing.*;
@@ -182,6 +179,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
                 cal.set(y, m, d, 0, 0, 0);
                 Date dob = cal.getTime();
                 UserData testBoi = new UserData(f, l, u, e, dob, s, r, this.acctType);
+                services.Register(testBoi, p);
                 System.out.println();
                 this.dispose();
                 new LoginFrame();

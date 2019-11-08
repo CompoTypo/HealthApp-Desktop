@@ -1,21 +1,14 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.*;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.DateFormat;
 import java.nio.charset.StandardCharsets;
 
 
 
 public class Auth {
     private Requests req = new Requests();
-
-    private boolean checkForSemi(String w) { 
-        Matcher m = Pattern.compile(";").matcher(w);
-        return m.matches();
-    }
 
     private String hashPassword(String w) throws NoSuchAlgorithmException {
         final MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -39,10 +32,11 @@ public class Auth {
         try {
             String uh = hashPassword(u);
             String ph = hashPassword(p);
+            System.out.println(uh + ":" + ph);
             Map<String, String> params = new HashMap<>();
             params.put("Uname", uh);
             params.put("Hash", ph);
-            Map<String, String> user = req.put(params);
+            Map<String, String> user = req.send(params, "PUT", "/login");
             if (user == null) { return new HashMap<>(); } 
             else { return user; }
         } catch (NoSuchAlgorithmException e) {
@@ -67,7 +61,7 @@ public class Auth {
             params.put("Type", newUser.getAcctType());
             System.out.println("butts");
 
-            Map<String, String> user = req.post(params);
+            Map<String, String> user = req.send(params, "POST", "/register");
         } catch (NoSuchAlgorithmException e) {
             System.out.println("NoSuchAlgorithmException: check dependencies jdk8+");
         }
