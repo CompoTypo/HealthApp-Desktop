@@ -31,20 +31,20 @@ public class Requests {
         return pairs;
     }
 
-    private Map<String, String> _transact(String parms) {
+    private Map<String, String> _transact(String params) {
         try {
             http.setDoOutput(true);
+            http.setDoInput(true);
             OutputStream os = http.getOutputStream();
             OutputStreamWriter out = new OutputStreamWriter(os);
-            out.write(parms); 
+            out.write(params); 
             out.flush();
             out.close();
             os.close();
             System.out.println(http.getResponseCode() + " " + http.getResponseMessage());
-            this.http.setDoInput(true);
             InputStream is = http.getInputStream();
             BufferedReader in = new BufferedReader(new InputStreamReader(is));
-            String line = in.readLine().replaceAll("[}{]", "");
+            String line = in.readLine().replaceAll("[\\[\\]}{]", "");
             Map<String, String> pairs = splitToMap(line);
             return pairs;
         } catch (IOException e) {
@@ -58,10 +58,11 @@ public class Requests {
         byte[] params = p.toString().getBytes(StandardCharsets.UTF_8);
         try {
             url = new URL(apiURL + apiPort + ext);
-            this.http = (HttpURLConnection) url.openConnection();
-            this.http.setRequestMethod(type);
-            this.http.setRequestProperty("Content-Length", Integer.toString(params.length));    
+            http = (HttpURLConnection) url.openConnection();
+            http.setRequestMethod(type);
+            http.setRequestProperty("Content-Length", Integer.toString(params.length));    
             Map<String, String> feedback = _transact(p.toString());
+            http.disconnect();
             return feedback;
         } catch (MalformedURLException e) {
             System.out.println(e);
