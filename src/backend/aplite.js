@@ -39,27 +39,32 @@ async function processLogin(request, response) {
   // at this point, `body` has the entire request body stored in it as a string
 };
 
-
 async function registerUser(request, response) {
   keyInserts = valInserts = "";
   let body = await _readBody(request);
   elArr = [];
-
+  let arg1;
   body.forEach((element, index) => {
     if (index !== 0) {
-      keyInserts += ", ";
-      valInserts += ", ";
+      keyInserts += ', ';
+      valInserts += ', ';
     }
     element = element.replace(/\s+/g, ''); // get rid of whitespace
     element = element.split('='); // split the pairs, creating a 2d arr
-    elArr.push(element);
+    if (element[0] === "Uname") { arg1 = element[1]; }
     keyInserts += element[0];
-    valInserts += element[1]; // . . . an array element
+    valInserts += '?'; // . . . an array element
+    elArr.push(element[1]);
   });
-  // = await queries.check("select distinct * from users where Uname=? AND Hash=?", [elArr[0][1], elArr[1][1]], response);  
-  // sql = "insert into users (" + keyInserts + ") values (" + valInserts + ")";
-  // queries.insert(sql, elArr, response);
-  // at this point, `body` has the entire request body stored in it as a string
+  let isAvailable = await queries.check("select * from users where Uname=?", [arg1], response);
+  if (isAvailable) {
+    sql = "insert into users (" + keyInserts + ") values (" + valInserts + ")";
+    await queries.insert(sql, elArr, response);
+  } else {
+    response.statusCode = 409;
+    response.setHeader('Content-Type', 'text/plain');
+    response.end("Username is already in use");
+  }
 };
 
 const server = http.createServer((req, res) => {
