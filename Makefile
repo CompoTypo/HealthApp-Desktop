@@ -1,5 +1,5 @@
 build:
-	rm -rf ./build/  
+	rm -rf ./build/
 	javac ./src/frames/*.java ./src/models/*.java ./src/utilities/*.java -d ./build/ -Xlint 
 
 exec:
@@ -8,9 +8,9 @@ exec:
 quick:
 	rm -rf ./build/
 	javac ./src/Main.java ./src/frames/*.java ./src/models/*.java ./src/utilities/*.java -d ./build/  
-	java -cp ./build/ Main  
+	java -cp ./build/ Main
 
-test:
+junit:
 	rm -rf ./test/ ./build/
 	javac ./src/frames/*.java ./src/models/*.java ./src/utilities/*.java -d ./build/  
 	javac ./src/test/*.java -d ./test/  
@@ -18,4 +18,7 @@ test:
 
 serve:
 	node ./src/backend/aplite.js
+
+mocha:
+	mocha ./src/test/apiTest.js
 

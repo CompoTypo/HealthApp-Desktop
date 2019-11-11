@@ -64,6 +64,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 			for (Entry<String, String> entry : user.entrySet()) {
 				System.out.println(entry.getKey() + ":" + entry.getValue());	
 			}
+			new HomeFrame(user);
 		} else if (e.getSource() == register) {
 			this.dispose();
 			new RegisterFrame();
