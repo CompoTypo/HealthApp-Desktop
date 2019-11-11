@@ -29,7 +29,7 @@ async function processLogin(request, response) {
   try {
     body.forEach(element => {
       element = element.replace(/\s+/g, ''); // get rid of whitespace
-      element = element.split('='); // split the pairs, creating a 2d arr
+      element = element.split('=' || ':'); // split the pairs, creating a 2d arr
       elArr.push(element); // . . . an array element
     });
     queries.find("select distinct * from users where Uname=? AND Hash=?", [elArr[0][1], elArr[1][1]], response);
@@ -81,6 +81,7 @@ const server = http.createServer((req, res) => {
       registerUser(req, res);
     }
   } else if (req.method === 'DELETE') {}
+
 });
 
 server.listen(port, hostname, () => {

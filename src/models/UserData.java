@@ -1,4 +1,8 @@
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class UserData {
 	private String firstname;
@@ -12,6 +16,23 @@ public class UserData {
 	private PatientData pd; // !! optional, constructs safe invalid object by default
 	private DoctorData md; // !! optional, constructs safe invalid object by default
 	private String hash;
+
+	//UserData(Map<String, String> u) {
+	//	for (Entry<String, String> e: u.entrySet()) {
+	//		if (e.getKey().equals("Fname")) { firstname = e.getValue(); }
+	//		if (e.getKey().equals("Lname")) { lastname = e.getValue(); }
+	//		if (e.getKey().equals("Uname")) { uname = e.getValue(); }
+	//		if (e.getKey().equals("Email")) { email = e.getValue(); }
+	//		if (e.getKey().equals("DOB")) {
+	//			Calendar cal = new GregorianCalendar();
+	//			dob
+	//		}
+	//		if (e.getKey().equals("Sex")) { sex = e.getValue(); }
+	//		if (e.getKey().equals("Race")) { race = e.getValue(); }
+	//		if (e.getKey().equals("Type")) { acctType = e.getValue(); }
+//
+	//	}
+	//}
 
 	UserData(String fn, String ln, String un, String em, Date dob, String s, String r, String acctType) {
 		this.firstname = fn;

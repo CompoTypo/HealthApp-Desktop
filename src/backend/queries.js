@@ -8,11 +8,10 @@ function end(err, result, res) {
     } else {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
-        console.log(result);
-        if (typeof result === 'undefined') {
+        if (typeof result !== 'undefined') {
             res.end(JSON.stringify(result));
         } else {
-            res.end('Account registered');
+            res.end('Account,registered');
         }
     }
 }
@@ -25,9 +24,7 @@ exports.find = (sql, params, res) => {
 exports.check = (sql, params) => {
     return new Promise((resolve, reject) => {
         db.get(sql, params, (err, row) => {
-            if (err) {
-                reject(console.error(err.message));
-            }
+            if (err) { reject(console.error(err.message)); }
             resolve(row ? 0 : 1);
         })
     });

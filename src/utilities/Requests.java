@@ -26,7 +26,9 @@ public class Requests {
         String[] rawPairs = l.split(",");
         for (String rawPair : rawPairs)  {
             String[] pair = rawPair.split(":");
-            pairs.put(pair[0], pair[1]);
+            if (pair.length == 2) {
+                pairs.put(pair[0], pair[1]);
+            }
         }
         return pairs;
     }
@@ -45,7 +47,7 @@ public class Requests {
             InputStream is = http.getInputStream();
             BufferedReader in = new BufferedReader(new InputStreamReader(is));
             String line = in.readLine().replaceAll("[\\[\\]}{]", "");
-            Map<String, String> pairs = splitToMap(line);
+            Map<String, String> pairs = !line.equals("") ? splitToMap(line) : splitToMap("account:created");
             return pairs;
         } catch (IOException e) {
             System.out.println(e);
