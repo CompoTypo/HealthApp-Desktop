@@ -130,9 +130,9 @@ public class RegisterFrame extends JFrame implements ActionListener {
             String l = lastname.getText();
             String u = username.getText();
             String e = email.getText();
-            int d = day.getText().equals("") ? 0 : Integer.parseInt(day.getText());
-            int m = month.getText().equals("") ? 0 : Integer.parseInt(month.getText()) - 1;
-            int y = year.getText().equals("") ? 0 : Integer.parseInt(year.getText());
+            int d = dd.getText().equals("") ? 0 : Integer.parseInt(dd.getText());
+            int m = mm.getText().equals("") ? 0 : Integer.parseInt(mm.getText()) - 1;
+            int y = yyyy.getText().equals("") ? 0 : Integer.parseInt(yyyy.getText());
             String p = new String(password.getPassword());
             String pc = new String(confPassword.getPassword());
             String s = sex.getText();
