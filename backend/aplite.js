@@ -5,7 +5,7 @@ const queries = require('./queries');
 const port = 8000;
 const hostname = "127.0.0.1";
 
-sendAdminLogin = (request, response) => {
+function sendAdminLogin(request, response) {
   response.statusCode = 200;
   response.setHeader('Content-Type', 'text/html');
   response.end(fs.readFileSync("./html/index.html"));
@@ -71,8 +71,8 @@ async function registerUser(request, response) {
 
 const server = http.createServer((req, res) => {
   if (req.method == 'GET') {
-    //if (req.headers.host === hostname + ":" + port) {
     sendAdminLogin(req, res);
+    //if (req.headers.host === hostname + ":" + port) {
     //}
   } else if (req.method == 'PUT') {
     if (req.url === '/login') {

@@ -50,6 +50,7 @@ public class Auth {
             Map<String, String> params = new HashMap<>();
             String u = hashPassword(newUser.getUname());
             String h = hashPassword(p);
+            System.out.println(u+":"+h);
             params.put("Fname", newUser.getFirstname());
             params.put("Lname", newUser.getLastname());
             params.put("Uname", u);

@@ -1,4 +1,3 @@
-
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -39,7 +38,6 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.wlabel = new JLabel("Enter weight (pounds): ");
         this.slabel = new JLabel("Enter sex: ");
         this.rlabel = new JLabel("Enter race: ");
-        this.speclabel = new JLabel("Enter your specialty: ");
         
         this.firstname = new JTextField("", 15);
         this.lastname = new JTextField("", 15);
@@ -51,12 +49,9 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.password = new JPasswordField("", 15);
         this.confPassword = new JPasswordField("", 15);
         
-        this.height = new JTextField("", 16);
-        this.weight = new JTextField("", 16);
         this.sex = new JTextField("M/F", 16);
         this.race = new JTextField("", 16);
         
-        this.specialty = new JTextField("", 15);
         this.register = new JButton("Register");
         this.register.addActionListener(this);
         
@@ -78,13 +73,11 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.patientRadio.addActionListener(this);
         this.doctorRadio.addActionListener(this);
         
-        this.height.addActionListener(this);
-        this.weight.addActionListener(this);
         this.sex.addActionListener(this);
         this.race.addActionListener(this);
 
         this.setTitle("Please enter your registration info");
-        this.setLayout(new GridLayout(30,2));
+        this.setLayout(new GridLayout(30, 2));
         this.setLocation(300, 300);
         this.setSize(325, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -118,8 +111,6 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.add(rlabel);
         this.add(race);
         this.add(register);
-        this.add(speclabel);
-        this.add(specialty);
         
         this.add(patientRadio);
         this.add(doctorRadio);
@@ -139,31 +130,46 @@ public class RegisterFrame extends JFrame implements ActionListener {
             String l = lastname.getText();
             String u = username.getText();
             String e = email.getText();
-            String month = mm.getText();
-            String day = dd.getText();
-            String year = yyyy.getText();
-            try {
-            	int mon = Integer.parseInt(month);
-                int da = Integer.parseInt(day);
-                int ye = Integer.parseInt(year);
-                Date dob = new Date(ye, mon, da);
-            }catch(Exception ex) {}
-            String p = password.getPassword().toString();
-            String pc = confPassword.getPassword().toString();
-            String h = height.getText();
-            String w = weight.getText();
+            int d = day.getText().equals("") ? 0 : Integer.parseInt(day.getText());
+            int m = month.getText().equals("") ? 0 : Integer.parseInt(month.getText()) - 1;
+            int y = year.getText().equals("") ? 0 : Integer.parseInt(year.getText());
+            String p = new String(password.getPassword());
+            String pc = new String(confPassword.getPassword());
             String s = sex.getText();
             String r = race.getText();
-            String spec = specialty.getText();
-            Matcher reg = Pattern.compile("^(.+)@(.+)$").matcher(e);
-            System.out.println(reg.matches());
-            String accountType;
-            if(doctor) accountType = "Doctor";
-            else accountType = "Patient";
-            UserData usr = new UserData(f,l,u,e,dob,s,r,accountType);
-            services.Register(usr, p);
-            this.dispose();
-            new LoginFrame();
+            accountType = doctor ? "Doctor" : "Patient";
+            Calendar cal = new GregorianCalendar();
+
+            if (!Pattern.matches("[a-zA-Z]{2,20}", l)) {
+                System.out.println("weird year to be born in");
+            } else if (!Pattern.matches("[a-zA-Z]{2,20}", l)) {
+                System.out.println("Error lastname");
+            } else if (!Pattern.matches("[a-zA-Z0-9_]{8,20}", u)) {
+                System.out.println("bad uname");
+            } else if (!Pattern.matches("^(.+)@(.+)$", e)) {
+                System.out.println("Incorrect email");
+            } else if (!Pattern.matches("[0-9]{1,2}", Integer.toString(d)) && d <= 32) {
+                System.out.println("weird day to be born on");
+            } else if (!Pattern.matches("[01][0-9]{1,2}", Integer.toString(m)) && m <= 12) {
+                System.out.println("weird month to be born on");
+            } else if (!Pattern.matches("[0-9]{4}", Integer.toString(y)) && y <= cal.get(Calendar.YEAR)) {
+                System.out.println("weird year to be born in");
+            } else if (Pattern.matches("[a-zA-Z0-9_]{8,}", p) && p.matches(pc)) {
+                System.out.println("Bad password or passwords dont match");
+            } else if (!Pattern.matches("[a-zA-Z]{0,10}", s)) {
+                System.out.println("Weird sex");
+            } else if (!Pattern.matches("[a-zA-Z]{0,10}", r)) {
+                System.out.println("Does your race have any letters in it?");
+            } else {
+                cal.set(y, m, d, 0, 0, 0);
+                Date dob = cal.getTime();
+                UserData testBoi = new UserData(f, l, u, e, dob, s, r, this.acctType);
+                services.Register(testBoi, p);
+                System.out.println();
+                this.dispose();
+                new LoginFrame();
+            
+            }
         } 
     }
 }
