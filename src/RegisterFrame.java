@@ -76,7 +76,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         
 
         this.setTitle("Please enter your registration info");
-        this.setLayout(new GridLayout());
+        this.setLayout(new GridLayout(30,2));
         this.setLocation(300, 300);
         this.setSize(325, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

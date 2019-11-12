@@ -20,7 +20,6 @@ public class Requests {
     private URL url;
     private HttpURLConnection http;
 
-
     private Map<String,String> splitToMap(String l) {
         Map<String, String> pairs = new HashMap<>();
         String[] rawPairs = l.split(",");

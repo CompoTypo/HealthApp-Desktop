@@ -6,6 +6,8 @@ const port = 8000;
 const hostname = "127.0.0.1";
 
 sendAdminLogin = (request, response) => {
+  response.statusCode = 200;
+  response.setHeader('Content-Type', 'text/html');
   response.end(fs.readFileSync("./html/index.html"));
 }
 
