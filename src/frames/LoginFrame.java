@@ -69,6 +69,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 			this.dispose();
 			new RegisterFrame();
 		}
+		
 	}
 }
 
