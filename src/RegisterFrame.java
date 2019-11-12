@@ -1,4 +1,4 @@
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
@@ -76,7 +76,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         
 
         this.setTitle("Please enter your registration info");
-        this.setLayout(new FlowLayout());
+        this.setLayout(new GridLayout());
         this.setLocation(300, 300);
         this.setSize(325, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
