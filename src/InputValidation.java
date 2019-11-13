@@ -56,6 +56,10 @@ public class InputValidation {
 	
 	public boolean isValidYear(int input)
 	{
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 		if (! ( Pattern.matches("[0-9]{4}", Integer.toString(input)) && input <= 2020 ) )
 		{
             System.out.println("Invalid Year");
@@ -68,6 +72,10 @@ public class InputValidation {
 	}
 	public boolean isValidMonth(int input)
 	{
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 		if (!(input > 0 && input < 13) )
 		{
             System.out.println("Invalid Month");
