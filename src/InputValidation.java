@@ -56,7 +56,11 @@ public class InputValidation {
 	
 	public boolean isValidYear(int input)
 	{
+<<<<<<< HEAD
 		if (!Pattern.matches("[0-9]{4}", Integer.toString(input)) && input <= 2020 )
+=======
+		if (! ( Pattern.matches("[0-9]{4}", Integer.toString(input)) && input <= 2020 ) )
+>>>>>>> DashBranch
 		{
             System.out.println("Invalid Year");
 			return false;
@@ -68,7 +72,11 @@ public class InputValidation {
 	}
 	public boolean isValidMonth(int input)
 	{
+<<<<<<< HEAD
 		if (!Pattern.matches("[0-9]{4}", Integer.toString(input)) && input <= 13 )
+=======
+		if (!(input > 0 && input < 13) )
+>>>>>>> DashBranch
 		{
             System.out.println("Invalid Month");
 			return false;
@@ -80,7 +88,11 @@ public class InputValidation {
 	}
 	public boolean isValidDay(int input)
 	{
+<<<<<<< HEAD
 		if (!Pattern.matches("[0-9]{1,2}", Integer.toString(input)) && input <= 32)
+=======
+		if (!(input > 0 && input < 32))
+>>>>>>> DashBranch
 		{
             System.out.println("Invalid Day");
 			return false;
