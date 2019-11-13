@@ -38,7 +38,7 @@ async function processLogin(request, response) {
   } catch (err) {
     console.log(err);
   }
-  // at this point, `body` has the entire request body stored in it as a string
+  // at this point, `body` has the entire request body stored in it as a string 
 };
 
 async function registerUser(request, response) {
