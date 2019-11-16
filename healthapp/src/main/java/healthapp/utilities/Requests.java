@@ -1,3 +1,5 @@
+package group.project.teamhungerforce;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.nio.charset.StandardCharsets;

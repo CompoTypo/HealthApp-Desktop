@@ -1,3 +1,5 @@
+package group.project.teamhungerforce;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -17,22 +19,42 @@ public class UserData {
 	private DoctorData md; // !! optional, constructs safe invalid object by default
 	private String hash;
 
-	//UserData(Map<String, String> u) {
-	//	for (Entry<String, String> e: u.entrySet()) {
-	//		if (e.getKey().equals("Fname")) { firstname = e.getValue(); }
-	//		if (e.getKey().equals("Lname")) { lastname = e.getValue(); }
-	//		if (e.getKey().equals("Uname")) { uname = e.getValue(); }
-	//		if (e.getKey().equals("Email")) { email = e.getValue(); }
-	//		if (e.getKey().equals("DOB")) {
-	//			Calendar cal = new GregorianCalendar();
-	//			dob
-	//		}
-	//		if (e.getKey().equals("Sex")) { sex = e.getValue(); }
-	//		if (e.getKey().equals("Race")) { race = e.getValue(); }
-	//		if (e.getKey().equals("Type")) { acctType = e.getValue(); }
-//
-	//	}
-	//}
+	UserData(Map<String, String> u) {
+		for (Entry<String, String> e : u.entrySet()) {
+			String k = e.getKey();
+			String v = e.getValue();
+			System.out.println(k + " " + v);
+			if (k.matches("Fname")) {
+				System.out.println(v);
+				this.firstname = v;
+			} else if (k.matches("Lname")) {
+				System.out.println(v);
+				this.lastname = v;
+			} else if (k.matches("Uname")) {
+				System.out.println(v);
+				this.uname = v;
+			} else if (k.matches("Email")) {
+				System.out.println(v);
+				this.email = v;
+			} else if (k.matches("DOB")) {
+				Calendar cal = new GregorianCalendar();
+				cal.set(Calendar.YEAR, v.indexOf(19, 20));
+				cal.set(Calendar.MONTH, v.indexOf(3, 5));
+				cal.set(Calendar.DAY_OF_WEEK, v.indexOf(0, 2));
+				cal.set(Calendar.DAY_OF_MONTH, v.indexOf(6, 7));
+				this.dob = cal.getTime();
+			} else if (k.matches("Sex")) {
+				System.out.println(v);
+				this.sex = v;
+			} else if (k.matches("Race")) {
+				System.out.println(v);
+				this.race = v;
+			} else if (k.matches("Type")) {
+				System.out.println(v);
+				this.acctType = v;
+			}
+		}
+	}
 
 	UserData(String fn, String ln, String un, String em, Date dob, String s, String r, String acctType) {
 		this.firstname = fn;
@@ -131,5 +153,14 @@ public class UserData {
 
 	public void setAcctType(String acctType) {
 		this.acctType = acctType;
+	}
+
+	public void enumerate() {
+		System.out.println(this.firstname + " " + this.lastname);
+		System.out.println(this.uname);
+		System.out.println(this.email);
+		System.out.println(this.race);
+		System.out.println(this.sex);
+		System.out.println(this.acctType);
 	}
 }

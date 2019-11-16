@@ -1,3 +1,5 @@
+package group.project.teamhungerforce;
+
 import java.util.ArrayList;
 
 public class DoctorData {

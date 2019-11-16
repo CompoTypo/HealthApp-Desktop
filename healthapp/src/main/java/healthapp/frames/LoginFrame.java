@@ -1,3 +1,6 @@
+package group.project.teamhungerforce;
+
+
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,17 +12,15 @@ import javax.swing.*;
 
 public class LoginFrame extends JFrame implements ActionListener {
 	private	Auth services = new Auth();
+	private InputValidation inVal = new InputValidation();
+
 	private static final long serialVersionUID = 1L;
 	private JTextField username;
 	private JPasswordField password;
 	private JButton login, register;
 	private JLabel label1;
 	private JLabel label2;
-
-	public static void main(String[] args) {
-		new LoginFrame();
-	}
-
+	
 	LoginFrame() {
 		label1 = new JLabel("Username: ");
 		label2 = new JLabel("Password: ");
@@ -54,17 +55,18 @@ public class LoginFrame extends JFrame implements ActionListener {
 			String u = username.getText();
 			String p = new String(password.getPassword());
 
-            if (!Pattern.matches("[a-zA-Z]{2,20}", u)) {
+            if (!inVal.isValidUN(u)) {
                 System.out.println("nope");
-            } else if (!Pattern.matches("[a-zA-Z]{2,20}", p)) {
+            } else if (!inVal.isValidPW(p)) {
                 System.out.println("Error");
-            }		
-
-			Map<String, String> user = services.Authenticate(u, p);
-			for (Entry<String, String> entry : user.entrySet()) {
-				System.out.println(entry.getKey() + ":" + entry.getValue());	
+            } else {
+				Map<String, String> rawUser = services.Authenticate(u, p);
+				for (Entry<String, String> entry : rawUser.entrySet()) {
+					System.out.println(entry.getKey() + ":" + entry.getValue());	
+				}
+				UserData user = new UserData(rawUser);
+				new HomeFrame(user);
 			}
-			new HomeFrame(user);
 		} else if (e.getSource() == register) {
 			this.dispose();
 			new RegisterFrame();

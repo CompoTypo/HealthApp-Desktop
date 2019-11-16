@@ -1,3 +1,5 @@
+package group.project.teamhungerforce;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,7 +61,6 @@ public class Auth {
             params.put("Sex", newUser.getSex());
             params.put("Race", newUser.getRace());
             params.put("Type", newUser.getAcctType());
-
             Map<String, String> user = req.send(params, "POST", "/register");
         } catch (NoSuchAlgorithmException e) {
             System.out.println("NoSuchAlgorithmException: check dependencies jdk8+");

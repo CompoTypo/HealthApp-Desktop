@@ -1,3 +1,5 @@
+package group.project.teamhungerforce;
+
 import java.awt.Event;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -14,8 +16,11 @@ import java.util.regex.Pattern;
 import javax.swing.*;
 
 public class RegisterFrame extends JFrame implements ActionListener {
+    private Auth services = new Auth();
+    private InputValidation inVal = new InputValidation();
+
     private static final long serialVersionUID = 1L;
-    private JTextField firstname, lastname, username, email, mm,dd,yyyy, race, specialty;
+    private JTextField firstname, lastname, username, email, mm, dd, yyyy, race, specialty;
     private JPasswordField password, confPassword;
     private JRadioButton patientRadio, doctorRadio, male, female;
     private ButtonGroup accountRadios, sexgroup;
@@ -24,7 +29,6 @@ public class RegisterFrame extends JFrame implements ActionListener {
     private String accountType;
     private boolean doctor = false;
     private String gender = "";
-    private Auth services = new Auth(); 
 
     RegisterFrame() {
         this.label1 = new JLabel("First name: ");
@@ -36,19 +40,19 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.label7 = new JLabel("Confirm password: ");
         this.slabel = new JLabel("Enter sex: ");
         this.rlabel = new JLabel("Enter race: ");
-        
+
         this.firstname = new JTextField("Albert", 15);
         this.lastname = new JTextField("Einstein", 15);
         this.username = new JTextField("Albert12", 20);
         this.email = new JTextField("einstein@gmail.com", 15);
-        this.mm = new JTextField("12",3);
+        this.mm = new JTextField("12", 3);
         this.dd = new JTextField("21", 3);
-        this.yyyy = new JTextField("1776",3);
+        this.yyyy = new JTextField("1776", 3);
         this.password = new JPasswordField("Einstein12", 15);
         this.confPassword = new JPasswordField("Einstein12", 15);
         this.race = new JTextField("", 16);
         this.register = new JButton("Register");
-        
+
         this.patientRadio = new JRadioButton("Patient");
         this.doctorRadio = new JRadioButton("Doctor");
         this.male = new JRadioButton("Male");
@@ -82,7 +86,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.setSize(325, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        
+
         this.add(label1);
         this.add(firstname);
         this.add(label2);
@@ -99,16 +103,16 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.add(password);
         this.add(label7);
         this.add(confPassword);
-        
+
         this.add(slabel);
         this.add(male);
         this.add(female);
         male.setSelected(true);
-        
+
         this.add(rlabel);
         this.add(race);
         this.add(register);
-        
+
         this.add(patientRadio);
         this.add(doctorRadio);
         patientRadio.setSelected(true);
@@ -116,31 +120,31 @@ public class RegisterFrame extends JFrame implements ActionListener {
 
         this.setVisible(true);
     }
-    
+
     public static boolean isInteger(String s) {
-        try { 
-            Integer.parseInt(s); 
-        } catch(NumberFormatException e) { 
-            return false; 
-        } catch(NullPointerException e) {
+        try {
+            Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return false;
+        } catch (NullPointerException e) {
             return false;
         }
         // only got here if we didn't return false
         return true;
     }
-    
+
     public void actionPerformed(ActionEvent event) {
-    	
+
         if (event.getSource() == patientRadio) {
-        	doctor = false;
+            doctor = false;
         } else if (event.getSource() == doctorRadio) {
-        	doctor = true;
-        } else if(event.getSource()==male) { 
-        	gender = "M";
-        } else if(event.getSource()==female) {
-        	gender = "F";
+            doctor = true;
+        } else if (event.getSource() == male) {
+            gender = "M";
+        } else if (event.getSource() == female) {
+            gender = "F";
         }
-        
+
         else if (event.getSource() == register) {
             String f = firstname.getText();
             String l = lastname.getText();
@@ -152,41 +156,39 @@ public class RegisterFrame extends JFrame implements ActionListener {
             String p = new String(password.getPassword());
             String pc = new String(confPassword.getPassword());
             String r = race.getText();
-            accountType = doctor ? "Doctor" : "Patient";
             Calendar cal = new GregorianCalendar();
-            if (!Pattern.matches("[a-zA-Z]{2,20}", f)) {
+
+            if (!inVal.isValidName(f)) {
                 System.out.println("firstname");
-            } else if (!Pattern.matches("[a-zA-Z]{2,20}", l)) {
+            } else if (!inVal.isValidName(l)) {
                 System.out.println("lastname");
-            } else if (!Pattern.matches("[a-zA-Z0-9_]{8,20}", u)) {
+            } else if (!inVal.isValidUN(u)) {
                 System.out.println("bad uname");
-            } else if (!Pattern.matches("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)", e)) {
+            } else if (!inVal.isValidEmail(e)) {
                 System.out.println("Incorrect email");
-            } else if (!Pattern.matches("[0-9]{1,2}", d) || !isInteger(d) || (Integer.parseInt(d)>31)) {
+            } else if (!inVal.isValidYear(y)) {
                 System.out.println("weird day to be born on");
-            } else if (!Pattern.matches("[0-9]{1,2}", m) || !isInteger(m) || (Integer.parseInt(m)>12)) {
+            } else if (!inVal.isValidMonth(m)) {
                 System.out.println("weird month to be born on");
-            } else if (!Pattern.matches("[0-9]{4}", y) || !isInteger(y) || Integer.parseInt(y) > cal.get(Calendar.YEAR)) {
+            } else if (!inVal.isValidDay(d)) {
                 System.out.println("weird year to be born in");
-            } else if (!Pattern.matches("[a-zA-Z0-9_]{8,}", p) || pc.equals("")|| !pc.matches(p)) {
-                System.out.println("Bad password or passwords dont match");
-            } else if (!Pattern.matches("[a-zA-Z]{5,10}", r) || r.equals("") || !((r.equals("White") || r.equals("Black") ||r.equals("Asian")))) {
+            } else if (!inVal.isValidPW(p)) {
+                System.out.println("Bad password");
+            } else if (!p.equals(pc)) {
+                System.out.println("Passwords dont match");
+            } else if (!inVal.isValidRace(r)) {
                 System.out.println("Does your race have any letters in it?");
             } else {
                 cal.set(Integer.parseInt(y), Integer.parseInt(m), Integer.parseInt(d), 0, 0, 0);
-            Date dob = cal.getTime();
-            String acctType;
-            if(doctor) {
-              	acctType = "Doctor";
-            }else {
-               	acctType = "Patient";
+                Date dob = cal.getTime();
+                String acctType;
+                acctType = doctor ? "Doctor" : "Patient";
+                UserData testBoi = new UserData(f, l, u, e, dob, gender, r, acctType);
+                services.Register(testBoi, p);
+                System.out.println();
+                this.dispose();
+                new LoginFrame();
             }
-            UserData testBoi = new UserData(f, l, u, e, dob, gender, r, acctType);
-            services.Register(testBoi, p);
-            System.out.println();
-            this.dispose();
-            new LoginFrame();
-            }
-        } 
+        }
     }
 }

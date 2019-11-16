@@ -1,3 +1,5 @@
+package group.project.teamhungerforce;
+
 import java.util.Date;
 import java.util.Map;
 
