@@ -1,4 +1,4 @@
-package group.project.teamhungerforce;
+package healthapp.models;
 
 import java.util.ArrayList;
 

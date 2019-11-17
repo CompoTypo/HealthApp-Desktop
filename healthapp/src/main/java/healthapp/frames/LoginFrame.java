@@ -1,12 +1,13 @@
-package group.project.teamhungerforce;
-
+package healthapp.frames;
+import healthapp.utilities.Auth;
+import healthapp.utilities.InputValidation;
+import healthapp.models.UserData;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.regex.Pattern;
 
 import javax.swing.*;
 
@@ -21,7 +22,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 	private JLabel label1;
 	private JLabel label2;
 	
-	LoginFrame() {
+	public LoginFrame() {
 		label1 = new JLabel("Username: ");
 		label2 = new JLabel("Password: ");
 		

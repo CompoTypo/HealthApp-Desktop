@@ -1,4 +1,4 @@
-package group.project.teamhungerforce;
+package healthapp.utilities;
 
 import java.util.HashMap;
 import java.util.Map;

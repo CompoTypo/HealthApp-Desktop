@@ -1,4 +1,4 @@
-package group.project.teamhungerforce;
+package healthapp.models;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -19,7 +19,7 @@ public class UserData {
 	private DoctorData md; // !! optional, constructs safe invalid object by default
 	private String hash;
 
-	UserData(Map<String, String> u) {
+	public UserData(Map<String, String> u) {
 		for (Entry<String, String> e : u.entrySet()) {
 			String k = e.getKey();
 			String v = e.getValue();
@@ -56,7 +56,7 @@ public class UserData {
 		}
 	}
 
-	UserData(String fn, String ln, String un, String em, Date dob, String s, String r, String acctType) {
+	public UserData(String fn, String ln, String un, String em, Date dob, String s, String r, String acctType) {
 		this.firstname = fn;
 		this.lastname = ln;
 		this.uname = un;

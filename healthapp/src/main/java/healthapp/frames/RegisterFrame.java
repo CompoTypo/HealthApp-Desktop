@@ -1,17 +1,14 @@
-package group.project.teamhungerforce;
+package healthapp.frames;
+import healthapp.utilities.Auth;
+import healthapp.utilities.InputValidation;
+import healthapp.models.UserData;
 
-import java.awt.Event;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.swing.*;
 
@@ -26,7 +23,6 @@ public class RegisterFrame extends JFrame implements ActionListener {
     private ButtonGroup accountRadios, sexgroup;
     private JButton register;
     private JLabel label1, label2, label3, label4, label5, label6, label7, slabel, rlabel, speclabel, todo;
-    private String accountType;
     private boolean doctor = false;
     private String gender = "";
 
