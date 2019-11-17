@@ -7,7 +7,12 @@ public class VitalsData {
     private float weight;
 	private Date vitalsTaken;
 	
+	public VitalsData() {}
 
+	public VitalsData(float t, float w) {
+		this.temp = t;
+		this.weight = w;
+	}
 
 	public float getTemp() {
 		return this.temp;

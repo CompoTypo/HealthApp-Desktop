@@ -7,7 +7,7 @@ public class TestData {
     Map<String, String> results;
     private Date testTaken;
 
-    TestData(Map<String, String> r, Date d) {
+    public TestData(Map<String, String> r, Date d) {
         this.results = r;
         this.testTaken = d;
     }

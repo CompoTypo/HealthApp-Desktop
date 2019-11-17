@@ -11,7 +11,7 @@ public class PatientData {
     private ArrayList<BpData> bpReadings;
 	private ArrayList<TestData> tests;
 	
-	PatientData() {
+	public PatientData() {
 		this.height = -1.0;
 		this.weight = -1.0;
 		this.doctors = new ArrayList<DoctorData>();
@@ -20,7 +20,7 @@ public class PatientData {
 		this.tests = new ArrayList<TestData>();
 	}
 
-	PatientData(double h, double w) {
+	public PatientData(double h, double w) {
 		this.height = -1.0;
 		this.weight = -1.0;
 		this.doctors = new ArrayList<DoctorData>();
