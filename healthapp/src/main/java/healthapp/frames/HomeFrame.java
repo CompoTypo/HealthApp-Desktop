@@ -19,6 +19,7 @@ public class HomeFrame extends JFrame implements ActionListener {// inheriting J
       this.setLayout(new FlowLayout());
       setSize(1920, 1080);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      this.add(new CalendarPane());
       setResizable(false);
       setVisible(true);
    }
