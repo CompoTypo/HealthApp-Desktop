@@ -1,7 +1,7 @@
 package healthapp.frames;
+import healthapp.models.UserData;
 import healthapp.utilities.Auth;
 import healthapp.utilities.InputValidation;
-import healthapp.models.UserData;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -13,30 +13,19 @@ import java.util.GregorianCalendar;
 import javax.swing.*;
 
 public class RegisterFrame extends JFrame implements ActionListener {
-    private Auth services = new Auth();
-    private InputValidation inVal = new InputValidation();
+    private final Auth services = new Auth();
+    private final InputValidation inVal = new InputValidation();
 
     private static final long serialVersionUID = 1L;
-    private JTextField firstname, lastname, username, email, mm, dd, yyyy, race, specialty;
-    private JPasswordField password, confPassword;
-    private JRadioButton patientRadio, doctorRadio, male, female;
-    private ButtonGroup accountRadios, sexgroup;
-    private JButton register;
-    private JLabel label1, label2, label3, label4, label5, label6, label7, slabel, rlabel, speclabel, todo;
+    private final JTextField firstname, lastname, username, email, mm, dd, yyyy, race;
+    private final JPasswordField password, confPassword;
+    private final JRadioButton patientRadio, doctorRadio, male, female;
+    private final ButtonGroup accountRadios, sexgroup;
+    private final JButton register;
     private boolean doctor = false;
     private String gender = "";
 
     RegisterFrame() {
-        this.label1 = new JLabel("First name: ");
-        this.label2 = new JLabel("Last name: ");
-        this.label3 = new JLabel("Username: ");
-        this.label4 = new JLabel("Email: ");
-        this.label5 = new JLabel("Date of birth (mm,dd,yyyy): ");
-        this.label6 = new JLabel("Password: ");
-        this.label7 = new JLabel("Confirm password: ");
-        this.slabel = new JLabel("Enter sex: ");
-        this.rlabel = new JLabel("Enter race: ");
-
         this.firstname = new JTextField("Albert", 15);
         this.lastname = new JTextField("Einstein", 15);
         this.username = new JTextField("Albert12", 20);
@@ -77,35 +66,35 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.register.addActionListener(this);
 
         this.setTitle("Please enter your registration info");
-        this.setLayout(new GridLayout(30, 2));
+        this.setLayout(new GridLayout(0, 2));
         this.setLocation(300, 300);
         this.setSize(325, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
 
-        this.add(label1);
+        this.add(new JLabel("First name: "));
         this.add(firstname);
-        this.add(label2);
+        this.add(new JLabel("Last name: "));
         this.add(lastname);
-        this.add(label3);
+        this.add(new JLabel("Username: "));
         this.add(username);
-        this.add(label4);
+        this.add(new JLabel("Email: "));
         this.add(email);
-        this.add(label5);
+        this.add(new JLabel("Date of birth (mm,dd,yyyy): "));
         this.add(mm);
         this.add(dd);
         this.add(yyyy);
-        this.add(label6);
+        this.add(new JLabel("Password: "));
         this.add(password);
-        this.add(label7);
+        this.add(new JLabel("Confirm password: "));
         this.add(confPassword);
 
-        this.add(slabel);
+        this.add(new JLabel("Enter sex: "));
         this.add(male);
         this.add(female);
         male.setSelected(true);
 
-        this.add(rlabel);
+        this.add(new JLabel("Enter race: "));
         this.add(race);
         this.add(register);
 
@@ -117,19 +106,19 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
-    public static boolean isInteger(String s) {
+    public static boolean isInteger(final String s) {
         try {
             Integer.parseInt(s);
-        } catch (NumberFormatException e) {
+        } catch (final NumberFormatException e) {
             return false;
-        } catch (NullPointerException e) {
+        } catch (final NullPointerException e) {
             return false;
         }
         // only got here if we didn't return false
         return true;
     }
 
-    public void actionPerformed(ActionEvent event) {
+    public void actionPerformed(final ActionEvent event) {
 
         if (event.getSource() == patientRadio) {
             doctor = false;
@@ -142,17 +131,17 @@ public class RegisterFrame extends JFrame implements ActionListener {
         }
 
         else if (event.getSource() == register) {
-            String f = firstname.getText();
-            String l = lastname.getText();
-            String u = username.getText();
-            String e = email.getText();
-            String d = dd.getText();
-            String m = mm.getText();
-            String y = yyyy.getText();
-            String p = new String(password.getPassword());
-            String pc = new String(confPassword.getPassword());
-            String r = race.getText();
-            Calendar cal = new GregorianCalendar();
+            final String f = firstname.getText();
+            final String l = lastname.getText();
+            final String u = username.getText();
+            final String e = email.getText();
+            final String d = dd.getText();
+            final String m = mm.getText();
+            final String y = yyyy.getText();
+            final String p = new String(password.getPassword());
+            final String pc = new String(confPassword.getPassword());
+            final String r = race.getText();
+            final Calendar cal = new GregorianCalendar();
 
             if (!inVal.isValidName(f)) {
                 System.out.println("firstname");
@@ -176,10 +165,10 @@ public class RegisterFrame extends JFrame implements ActionListener {
                 System.out.println("Does your race have any letters in it?");
             } else {
                 cal.set(Integer.parseInt(y), Integer.parseInt(m), Integer.parseInt(d), 0, 0, 0);
-                Date dob = cal.getTime();
+                final Date dob = cal.getTime();
                 String acctType;
                 acctType = doctor ? "Doctor" : "Patient";
-                UserData testBoi = new UserData(f, l, u, e, dob, gender, r, acctType);
+                final UserData testBoi = new UserData(f, l, u, e, dob, gender, r, acctType);
                 services.Register(testBoi, p);
                 System.out.println();
                 this.dispose();

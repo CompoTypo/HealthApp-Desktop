@@ -1,6 +1,7 @@
 package healthapp.frames;
 import healthapp.utilities.Auth;
 import healthapp.utilities.InputValidation;
+import healthapp.frames.RegisterFrame;
 import healthapp.models.UserData;
 
 import java.awt.FlowLayout;
@@ -19,13 +20,8 @@ public class LoginFrame extends JFrame implements ActionListener {
 	private JTextField username;
 	private JPasswordField password;
 	private JButton login, register;
-	private JLabel label1;
-	private JLabel label2;
 	
 	public LoginFrame() {
-		label1 = new JLabel("Username: ");
-		label2 = new JLabel("Password: ");
-		
 		username = new JTextField("", 20);
 		password = new JPasswordField("", 20);
 		login = new JButton("Login");
@@ -42,9 +38,9 @@ public class LoginFrame extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 
-		add(label1);
+		add(new JLabel("Username: "));
 		add(username);
-		add(label2);
+		add(new JLabel("Password: "));
 		add(password);
 		add(login);
 		add(register);
@@ -62,11 +58,14 @@ public class LoginFrame extends JFrame implements ActionListener {
                 System.out.println("Error");
             } else {
 				Map<String, String> rawUser = services.Authenticate(u, p);
-				for (Entry<String, String> entry : rawUser.entrySet()) {
-					System.out.println(entry.getKey() + ":" + entry.getValue());	
-				}
 				UserData user = new UserData(rawUser);
-				new HomeFrame(user);
+
+				if (user.getHash().isEmpty()) {
+					System.out.println("No user info");
+				} else {
+					this.dispose();
+					new HomeFrame(user);
+				}
 			}
 		} else if (e.getSource() == register) {
 			this.dispose();

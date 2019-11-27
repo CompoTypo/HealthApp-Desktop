@@ -28,6 +28,12 @@ public class Requests {
         for (String rawPair : rawPairs)  {
             String[] pair = rawPair.split(":");
             if (pair.length == 2) {
+                for (int i = 0; i < pair.length; i++) {
+                    if (pair[i].contains("\"")) {
+                        pair[i] = pair[i].substring(1, pair[i].length()-1);
+                    }
+                }
+
                 pairs.put(pair[0], pair[1]);
             }
         }

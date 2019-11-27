@@ -1,12 +1,14 @@
 package healthapp.models;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Map;
 import java.util.Map.Entry;
+// import java.text.Normalizer;
+// import java.text.Normalizer.Form;
 
 public class UserData {
+
 	private String firstname;
 	private String lastname;
 	private String uname;
@@ -23,20 +25,20 @@ public class UserData {
 		for (Entry<String, String> e : u.entrySet()) {
 			String k = e.getKey();
 			String v = e.getValue();
+
+			//String k = Normalizer.normalize(e.getKey(), Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+			//String v = Normalizer.normalize(e.getValue(), Form.NFD).replaceAll("[^\\p{ASCII}]", "");
 			System.out.println(k + " " + v);
 			if (k.matches("Fname")) {
-				System.out.println(v);
 				this.firstname = v;
 			} else if (k.matches("Lname")) {
-				System.out.println(v);
 				this.lastname = v;
 			} else if (k.matches("Uname")) {
-				System.out.println(v);
 				this.uname = v;
 			} else if (k.matches("Email")) {
-				System.out.println(v);
 				this.email = v;
 			} else if (k.matches("DOB")) {
+				System.out.println(v);
 				Calendar cal = new GregorianCalendar();
 				cal.set(Calendar.YEAR, v.indexOf(19, 20));
 				cal.set(Calendar.MONTH, v.indexOf(3, 5));
@@ -44,16 +46,18 @@ public class UserData {
 				cal.set(Calendar.DAY_OF_MONTH, v.indexOf(6, 7));
 				this.dob = cal.getTime();
 			} else if (k.matches("Sex")) {
-				System.out.println(v);
 				this.sex = v;
 			} else if (k.matches("Race")) {
-				System.out.println(v);
 				this.race = v;
 			} else if (k.matches("Type")) {
-				System.out.println(v);
 				this.acctType = v;
+			} else if (k.matches("Hash")) {
+				this.hash = v;
+			} else if (k.matches("UID")) {
+				continue;
 			}
 		}
+
 	}
 
 	public UserData(String fn, String ln, String un, String em, Date dob, String s, String r, String acctType) {
@@ -123,24 +127,8 @@ public class UserData {
 		this.race = race;
 	}
 
-	public PatientData getPd() {
-		return this.pd;
-	}
-
-	public void setPd(PatientData pd) {
-		this.pd = pd;
-	}
-
-	public DoctorData getDoctor() {
-		return this.md;
-	}
-
-	public void setDoctor(DoctorData md) {
-		this.md = md;
-	}
-
 	public String getHash() {
-		return hash;
+		return this.hash;
 	}
 
 	public void setHash(String hash) {
@@ -148,7 +136,7 @@ public class UserData {
 	}
 
 	public String getAcctType() {
-		return acctType;
+		return this.acctType;
 	}
 
 	public void setAcctType(String acctType) {
