@@ -31,9 +31,9 @@ public class DailyLogFrame extends JFrame implements ActionListener{
         
         JTextField notifyOutput = new JTextField(16);
 
-	DailyLogFrame() 
+	public DailyLogFrame() 
         {
-          label1 = new JLabel("Weight in pounds ");
+          label1 = new JLabel("Weight in pounds    ");
           label2 = new JLabel("Blood Pressure");
           label3 = new JLabel("/");
           Log1 = new JTextField("", 10);
@@ -44,6 +44,7 @@ public class DailyLogFrame extends JFrame implements ActionListener{
           Log1.addActionListener(this);
           Log2.addActionListener(this);
           Log3.addActionListener(this);
+          setLog.addActionListener(this);
           
           this.setTitle("Enter Your Daily Log");
           this.setLayout(new FlowLayout());
@@ -64,7 +65,6 @@ public class DailyLogFrame extends JFrame implements ActionListener{
         }
 
 
-
 public void actionPerformed(ActionEvent e)
 {
    if(e.getSource() == setLog)
@@ -72,14 +72,23 @@ public void actionPerformed(ActionEvent e)
        String w = Log1.getText();
        String bpO = Log2.getText();
        String bpU = Log3.getText();
-           
-       if (!inVal.isValidMonth(w)) {
+
+       if (!inVal.isValidNumber(w)) {
            System.out.println("invalid weight");
+       }
+       else if (!inVal.isValidNumber(bpO)) {
+           System.out.println("invalid blood pressure");
+       }
+       else if (!inVal.isValidNumber(bpU)) {
+           System.out.println("invalid blood pressure");
        }
        
        else
         {
            final DailyLog test = new DailyLog(Integer.parseInt(w), Integer.parseInt(bpO), Integer.parseInt(bpU));
+           System.out.println(test.weight);
+           System.out.println(test.bpOver + "/"+ test.bpUnder);
+           
        }
    }
 }

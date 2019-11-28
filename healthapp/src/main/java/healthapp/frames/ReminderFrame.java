@@ -63,6 +63,7 @@ public class ReminderFrame extends JFrame implements ActionListener{
        	  ReminderTime1.addActionListener(this);
           ReminderTime2.addActionListener(this);
 	  ReminderDescription.addActionListener(this);
+	  setRemind.addActionListener(this);
           
           this.setTitle("Please Create a New Reminder");
           this.setLayout(new FlowLayout());

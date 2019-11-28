@@ -86,5 +86,32 @@ public class InputValidation {
 			return true;
 		}
 	}
+        
+        public boolean isValidHour(String input){
+                if (!(Pattern.matches("[0-9]{2}", input) && Integer.parseInt(input) <= 24)) {
+			System.out.println("Invalid Time");
+			return false;
+		} else {
+			return true;
+		}
+        }
+        
+        public boolean isValidMinute(String input){
+                if (!(Pattern.matches("[0-9]{2}", input) && Integer.parseInt(input) <= 59)) {
+			System.out.println("Invalid Time");
+			return false;
+		} else {
+			return true;
+		}
+        }
+        
+        public boolean isValidNumber(String input){
+        if (!(Pattern.matches("[0-9]{2,4}", input))) {
+			System.out.println("Invalid number");
+			return false;
+		} else {
+			return true;
+		}
+        }
 
 }
