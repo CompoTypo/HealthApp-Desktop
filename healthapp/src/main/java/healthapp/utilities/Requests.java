@@ -16,6 +16,9 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
+import com.auth0.jwt.JWT;
+
+
 public class Requests {
     private static final String apiURL = "http://127.0.0.1";
     private static final String apiPort = ":8000";
@@ -28,33 +31,30 @@ public class Requests {
         for (String rawPair : rawPairs)  {
             String[] pair = rawPair.split(":");
             if (pair.length == 2) {
-                for (int i = 0; i < pair.length; i++) {
-                    if (pair[i].contains("\"")) {
-                        pair[i] = pair[i].substring(1, pair[i].length()-1);
-                    }
-                }
-
                 pairs.put(pair[0], pair[1]);
             }
         }
         return pairs;
     }
 
-    private Map<String, String> _transact(String params) {
+    private Map<String, String> _transact(String t) {
         try {
             http.setDoOutput(true);
             http.setDoInput(true);
             OutputStream os = http.getOutputStream();
             OutputStreamWriter out = new OutputStreamWriter(os);
-            out.write(params); 
+            out.write(t); 
             out.flush();
             out.close();
             os.close();
             System.out.println(http.getResponseCode() + " " + http.getResponseMessage());
             InputStream is = http.getInputStream();
             BufferedReader in = new BufferedReader(new InputStreamReader(is));
-            String line = in.readLine().replaceAll("[\\[\\]}{]", "");
-            Map<String, String> pairs = !line.equals("") ? splitToMap(line) : splitToMap("account:created");
+
+            String line = in.readLine();
+            String newTok = Token.checkJWT(line);
+            String newInfo = newTok.replaceAll("[\\[\\]}{\"]", "");
+            Map<String, String> pairs = !newInfo.equals("") ? splitToMap(newInfo) : splitToMap("account:created");
             return pairs;
         } catch (IOException e) {
             System.out.println(e);
@@ -62,15 +62,15 @@ public class Requests {
         }
     }
 
-    public Map<String,String> send(Map<String, String> p, String type, String ext) {
-
-        byte[] params = p.toString().getBytes(StandardCharsets.UTF_8);
+    public Map<String,String> send(Map<String, Object> p, String type, String ext) {
         try {
+            String t = Token.createJWT(ext, p);
             url = new URL(apiURL + apiPort + ext);
             http = (HttpURLConnection) url.openConnection();
             http.setRequestMethod(type);
-            http.setRequestProperty("Content-Length", Integer.toString(params.length));    
-            Map<String, String> feedback = _transact(p.toString());
+            http.setRequestProperty("Content-Length", Integer.toString(t.length()));    
+            System.out.println(t);
+            Map<String, String> feedback = _transact(t);
             http.disconnect();
             return feedback;
         } catch (MalformedURLException e) {

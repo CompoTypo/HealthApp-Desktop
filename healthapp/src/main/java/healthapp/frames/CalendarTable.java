@@ -22,6 +22,8 @@ public class CalendarTable extends JPanel implements ActionListener {
     private int s = 7;
     private LinkedList<JButton> days;
     private Calendar cal;
+    private JButton addDate;
+
 
     public CalendarTable() {
         setLayout(new GridLayout(0, 7, 20, 20));
@@ -65,6 +67,10 @@ public class CalendarTable extends JPanel implements ActionListener {
                 }
             }
         }
+        addDate = new JButton();
+        addDate.add(new JLabel("Add a new event"));
+        addDate.addActionListener(this);
+        this.add(addDate);
         setVisible(true);
 
     }

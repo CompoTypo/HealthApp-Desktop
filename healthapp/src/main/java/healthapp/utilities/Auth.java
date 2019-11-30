@@ -36,7 +36,7 @@ public class Auth {
             String uh = hashPassword(u);
             String ph = hashPassword(p);
             System.out.println(uh + ":" + ph);
-            Map<String, String> params = new HashMap<>();
+            Map<String, Object> params = new HashMap<>();
             params.put("Uname", uh);
             params.put("Hash", ph);
             Map<String, String> user = req.send(params, "PUT", "/login");
@@ -50,7 +50,7 @@ public class Auth {
 
     public void Register(UserData newUser, String p) {
         try {
-            Map<String, String> params = new HashMap<>();
+            Map<String, Object> params = new HashMap<>();
             String u = hashPassword(newUser.getUname());
             String h = hashPassword(p);
             params.put("Fname", newUser.getFirstname());
