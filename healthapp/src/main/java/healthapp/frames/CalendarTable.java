@@ -55,11 +55,11 @@ public class CalendarTable extends JPanel implements ActionListener {
         days = new LinkedList<JButton>();
         int dayCounter = 1;
         
-        //Map<String, Object> authStuff = new HashMap<String, Object>();
-        //authStuff.put("Uname", this.curUser.getUname());
-        //authStuff.put("Hash", this.curUser.getHash());
-        //Map<String, String> dates = Requests.send(authStuff, "GET", "/ref");
-        
+        Map<String, Object> authStuff = new HashMap<String, Object>();
+        authStuff.put("Uname", this.curUser.getUname());
+        authStuff.put("Hash", this.curUser.getHash());
+        Map<String, String> dates = Requests.send(authStuff, "PUT", "/ref");
+        System.out.println(dates.toString());
 
         for (int i = 0; i < s - 1; i++) {
 

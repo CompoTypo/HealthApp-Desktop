@@ -57,4 +57,8 @@ public class Token {
         }
         return "";
     }
+
+    public static String getJWT() {
+        return savedToken;
+    }
 }
