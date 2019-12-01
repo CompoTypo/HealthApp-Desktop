@@ -8,7 +8,6 @@ public class PatientData {
     private ArrayList<DoctorData> doctors;
     // private ArrayList<Message> msgs;
     private ArrayList<VitalsData> vitalsReadings;
-    private ArrayList<BpData> bpReadings;
 	private ArrayList<TestData> tests;
 	
 	public PatientData() {
@@ -16,7 +15,6 @@ public class PatientData {
 		this.weight = -1.0;
 		this.doctors = new ArrayList<DoctorData>();
 		this.vitalsReadings = new ArrayList<VitalsData>();
-		this.bpReadings = new ArrayList<BpData>();
 		this.tests = new ArrayList<TestData>();
 	}
 
@@ -25,7 +23,6 @@ public class PatientData {
 		this.weight = -1.0;
 		this.doctors = new ArrayList<DoctorData>();
 		this.vitalsReadings = new ArrayList<VitalsData>();
-		this.bpReadings = new ArrayList<BpData>();
 		this.tests = new ArrayList<TestData>();
 	}
 
@@ -67,14 +64,6 @@ public class PatientData {
 
 	public void setVitalsReadings(ArrayList<VitalsData> vitalsReadings) {
 		this.vitalsReadings = vitalsReadings;
-	}
-
-	public ArrayList<BpData> getBpReadings() {
-		return this.bpReadings;
-	}
-
-	public void setBpReadings(ArrayList<BpData> bpReadings) {
-		this.bpReadings = bpReadings;
 	}
 
 	public ArrayList<TestData> getTests() {

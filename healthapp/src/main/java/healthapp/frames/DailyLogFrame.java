@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
+
 import healthapp.utilities.InputValidation;
 import healthapp.utilities.Requests;
 
@@ -81,7 +82,6 @@ public class DailyLogFrame extends JFrame implements ActionListener {
             } else if (!inVal.isValidNumber(pulse)) {
                 System.out.println("invalid pulse");
             } else {
-
                 Map<String, Object> log = new HashMap<>();
                 log.put("Hash", this.hash);
                 log.put("Wght", w);
@@ -92,9 +92,9 @@ public class DailyLogFrame extends JFrame implements ActionListener {
                 log.put("Dia", dia);
                 log.put("Pulse", pulse);
                 log.put("RTime", System.currentTimeMillis());
-                Requests.send(log, "POST", "/log");
+                Map <String, String> rawUpdatedUser = Requests.send(log, "POST", "/log");
+                this.dispose();
             }
         }
     }
-
 }

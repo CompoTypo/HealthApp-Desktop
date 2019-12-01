@@ -4,15 +4,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import healthapp.models.UserData;
+import healthapp.utilities.Requests;
 
 import javax.swing.JButton;
 
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
+import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,7 +41,7 @@ public class CalendarTable extends JPanel implements ActionListener {
         int daysInMonth = this.cal.getActualMaximum(Calendar.DATE);
         this.cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_WEEK_IN_MONTH));
         int firstDay = this.cal.get(Calendar.DAY_OF_WEEK);
-
+        
         System.out.println(today + " " + daysInMonth + " " + firstDay);
         this.add(new JLabel("Sunday"));
         this.add(new JLabel("Monday"));
@@ -47,10 +50,17 @@ public class CalendarTable extends JPanel implements ActionListener {
         this.add(new JLabel("Thursday"));
         this.add(new JLabel("Friday"));
         this.add(new JLabel("Saturday"));
-
-
+        
+        
         days = new LinkedList<JButton>();
         int dayCounter = 1;
+        
+        //Map<String, Object> authStuff = new HashMap<String, Object>();
+        //authStuff.put("Uname", this.curUser.getUname());
+        //authStuff.put("Hash", this.curUser.getHash());
+        //Map<String, String> dates = Requests.send(authStuff, "GET", "/ref");
+        
+
         for (int i = 0; i < s - 1; i++) {
 
             for (int j = 0; j < s && dayCounter <= daysInMonth; j++) {
