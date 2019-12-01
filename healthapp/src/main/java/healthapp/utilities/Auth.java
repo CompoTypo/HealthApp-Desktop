@@ -11,8 +11,6 @@ import java.nio.charset.StandardCharsets;
 
 
 public class Auth {
-    private Requests req = new Requests();
-
     private String hashPassword(String w) throws NoSuchAlgorithmException {
         final MessageDigest digest = MessageDigest.getInstance("SHA-256");
         final byte[] hashbytes = digest.digest(w.getBytes(StandardCharsets.UTF_8));
@@ -39,7 +37,7 @@ public class Auth {
             Map<String, Object> params = new HashMap<>();
             params.put("Uname", uh);
             params.put("Hash", ph);
-            Map<String, String> user = req.send(params, "PUT", "/login");
+            Map<String, String> user = Requests.send(params, "PUT", "/login");
             if (user == null) { return new HashMap<>(); } 
             else { return user; }
         } catch (NoSuchAlgorithmException e) {
@@ -62,7 +60,7 @@ public class Auth {
             params.put("Sex", newUser.getSex());
             params.put("Race", newUser.getRace());
             params.put("Type", newUser.getAcctType());
-            Map<String, String> user = req.send(params, "POST", "/register");
+            Map<String, String> user = Requests.send(params, "POST", "/register");
         } catch (NoSuchAlgorithmException e) {
             System.out.println("NoSuchAlgorithmException: check dependencies jdk8+");
         }

@@ -2,7 +2,6 @@ package healthapp.utilities;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.nio.charset.StandardCharsets;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,16 +15,9 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-import com.auth0.jwt.JWT;
-
-
 public class Requests {
-    private static final String apiURL = "http://127.0.0.1";
-    private static final String apiPort = ":8000";
-    private URL url;
-    private HttpURLConnection http;
 
-    private Map<String,String> splitToMap(String l) {
+    private static Map<String,String> splitToMap(String l) {
         Map<String, String> pairs = new HashMap<>();
         String[] rawPairs = l.split(",");
         for (String rawPair : rawPairs)  {
@@ -37,7 +29,7 @@ public class Requests {
         return pairs;
     }
 
-    private Map<String, String> _transact(String t) {
+    private static Map<String, String> _transact(HttpURLConnection http, String t) {
         try {
             http.setDoOutput(true);
             http.setDoInput(true);
@@ -62,7 +54,11 @@ public class Requests {
         }
     }
 
-    public Map<String,String> send(Map<String, Object> p, String type, String ext) {
+    public static Map<String,String> send(Map<String, Object> p, String type, String ext) {
+        String apiURL = "http://127.0.0.1";
+        String apiPort = ":8000";
+        URL url;
+        HttpURLConnection http;
         try {
             String t = Token.createJWT(ext, p);
             url = new URL(apiURL + apiPort + ext);
@@ -70,7 +66,7 @@ public class Requests {
             http.setRequestMethod(type);
             http.setRequestProperty("Content-Length", Integer.toString(t.length()));    
             System.out.println(t);
-            Map<String, String> feedback = _transact(t);
+            Map<String, String> feedback = _transact(http, t);
             http.disconnect();
             return feedback;
         } catch (MalformedURLException e) {

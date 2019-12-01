@@ -49,7 +49,7 @@ public class BpData {
     //
     //}
     
-    BpData(int s, int d, int p) {
+    public BpData(int s, int d, int p) {
         this.sys = s;
         this.dia = d;
         this.pulse = p;

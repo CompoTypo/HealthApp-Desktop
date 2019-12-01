@@ -2,6 +2,9 @@ package healthapp.frames;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import healthapp.models.UserData;
+
 import javax.swing.JButton;
 
 import java.awt.Color;
@@ -23,9 +26,11 @@ public class CalendarTable extends JPanel implements ActionListener {
     private LinkedList<JButton> days;
     private Calendar cal;
     private JButton addDate;
+    private UserData curUser;
 
 
-    public CalendarTable() {
+    public CalendarTable(UserData user) {
+        this.curUser = user;
         setLayout(new GridLayout(0, 7, 20, 20));
         setSize(1500, 900);
         this.cal = new GregorianCalendar();
@@ -61,6 +66,7 @@ public class CalendarTable extends JPanel implements ActionListener {
                     }
                     
                     day.addActionListener(this);
+                    day.setActionCommand(Integer.toString(dayCounter));
                     days.addLast(day);
                     this.add(days.getLast());
                     dayCounter++;
@@ -76,7 +82,7 @@ public class CalendarTable extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        
+        new DailyLogFrame(this.curUser.getHash(), e.getActionCommand());
     }
 
 }

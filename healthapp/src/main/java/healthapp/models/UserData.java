@@ -135,6 +135,22 @@ public class UserData {
 		this.hash = hash;
 	}
 
+	public PatientData getPd() {
+		return this.pd;
+	}
+
+	public void setPd(PatientData pd) {
+		this.pd = pd;
+	}
+
+	public DoctorData getMd() {
+		return this.md;
+	}
+
+	public void setMd(DoctorData md) {
+		this.md = md;
+	}
+
 	public String getAcctType() {
 		return this.acctType;
 	}
@@ -151,4 +167,6 @@ public class UserData {
 		System.out.println(this.sex);
 		System.out.println(this.acctType);
 	}
+
+
 }

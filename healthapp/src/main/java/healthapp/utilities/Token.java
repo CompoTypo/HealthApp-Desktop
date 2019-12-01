@@ -16,6 +16,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
  * token
  */
 public class Token {
+    private static String savedToken;
     private static final String secret = "secret";
 
     public static String createJWT(String subject, Map<String, Object> body) {
@@ -46,6 +47,7 @@ public class Token {
                 .withIssuer("server")
                 .build();
             DecodedJWT tok = verifier.verify(t);
+            savedToken = t;
             return tok.getClaim("info").asString();
 
         } catch (UnsupportedEncodingException e) {
