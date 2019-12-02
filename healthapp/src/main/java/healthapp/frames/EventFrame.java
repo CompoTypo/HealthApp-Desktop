@@ -17,7 +17,7 @@ public class EventFrame extends JFrame implements ActionListener {// inheriting 
      * @return nothing
      */
     EventFrame() {
-
+        // yeeeeehaaaaaaw
         this.setLayout(new GridLayout(0, 2));
         setSize(500, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

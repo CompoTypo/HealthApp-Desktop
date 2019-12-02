@@ -1,0 +1,506 @@
+commit 9c29a1a47d2213142d570780c3d1797a05ea7129
+Merge: dcd2314 229d9fe
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Dec 2 16:45:34 2019 -0600
+
+    Merge branch 'master' of https://github.com/DoggyBagBrunch/3354.502
+
+commit dcd2314fa8b07574b162ff511c5c0ffb1060de43
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Dec 2 16:44:53 2019 -0600
+
+    Javadocs on frames
+
+commit 229d9fe2185187de8014eab0a52087d092c02101
+Author: hjs2457 <hjs2457@gmail.com>
+Date:   Mon Dec 2 16:35:49 2019 -0600
+
+    Java doc for models including: TestData, UserData, PatientData, DoctorData, Reminder, VitalsData
+
+commit bc633d05222d19f8b241e60f0312fb0ccba95256
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Dec 2 15:34:07 2019 -0600
+
+    Print data retrieved from db on calendar
+
+commit 03f37e84551d0710f16c141718721446e49b1a98
+Merge: 68c847f 644fce9
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Dec 2 15:31:55 2019 -0600
+
+    Merge branch 'master' of https://github.com/DoggyBagBrunch/3354.502
+
+commit 644fce98ee576a2af065264be6690ab6cfbb96b5
+Author: hjs2457 <hjs2457@gmail.com>
+Date:   Mon Dec 2 15:27:00 2019 -0600
+
+    Java Docs for the utilities: Auth, InputValidation, Requests, Token
+
+commit e65e2d6f036135cc5c118cc24e646b5e37e53e42
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Mon Dec 2 14:20:12 2019 -0600
+
+    Testing the test results
+
+commit a6cb6016a6d2f10dfc87a219963f025ffc046432
+Merge: 0a2060d d57d332
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Mon Dec 2 14:11:50 2019 -0600
+
+    Merge branch 'master' into DashBranch
+
+commit 0a2060dc5362b2daf49e9054d6ead9340c10fc60
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Mon Dec 2 14:11:33 2019 -0600
+
+    Create VitalsDataTest.java
+
+commit 68c847f8fe1a4c7a6dc002bd13653353ec98e60b
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Dec 1 13:16:20 2019 -0600
+
+    logs request set to put and now it works. Full set of daily logs returned
+
+commit d57d33206675f09e9084ec971677c084227fa895
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Dec 1 11:53:25 2019 -0600
+
+    Data models condensed. Work made towards log query
+
+commit 3bb6cbda02df32a7df73a6bce90c0a752beca7d2
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Dec 1 06:58:13 2019 -0600
+
+    full path to and from backend for daily logs. Tweeks need to be made to update frontend
+
+commit 8d03dc8c5ce745a66612c77fa9130767bacb21ac
+Merge: 45965cf 2e91f4a
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Nov 29 22:43:54 2019 -0600
+
+    Merge branch 'master' of https://github.com/DoggyBagBrunch/3354.502 into calendar
+
+commit 45965cf1c22c9ec45c6992339e818cfb7b7826bd
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Nov 29 22:41:50 2019 -0600
+
+    JWT fully implemented
+
+commit 2e91f4ad4723fea1032154ea8db8cf64ad475756
+Author: Antonio Herrera <37684203+Azureknight117@users.noreply.github.com>
+Date:   Thu Nov 28 01:49:33 2019 -0600
+
+    Forgot to add action listeners for the buttons, added some stuff to inputvalidation
+
+commit 64fade03a32fdee8c1bc194336c03c5677514bec
+Author: Antonio Herrera <37684203+Azureknight117@users.noreply.github.com>
+Date:   Thu Nov 28 01:25:42 2019 -0600
+
+    Created frames for daily logs and reminders
+
+commit 83b05b9bfdd1c011ef925ae4e7417288cd6919f6
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Tue Nov 26 22:07:39 2019 -0600
+
+    Working constructor style for handling randomly ordered response maps. Calender is at a good stopping point. Getting off of master to work on it.
+
+commit a1d2ffe5009f523e741bdca5022e59a0286b2ce9
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Nov 18 23:23:15 2019 -0600
+
+    Joseph and andrew. Worked on the calender.
+
+commit 53ec52a783049eb6b9c656a32bbcda95f2bd33cb
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sat Nov 16 19:36:43 2019 -0600
+
+    tests are back and tested, more pieces added to data models
+
+commit a42365ffe7160eb9ea05aceb198ff59123f9f5c4
+Author: doggybagbrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Nov 17 00:21:35 2019 -0600
+
+    fc for me on a windows machine. maven installed with chocolately. going back to linux because of an old gitignore not commiting test cases
+
+commit f86be8047170e58c88cc44c230190d12cb1d39ca
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sat Nov 16 17:03:14 2019 -0600
+
+    Maven setup for easier project management, iteration 2 finalized.
+
+commit bae6e564c40271624b8199be2024a49273ee5718
+Merge: 00350de a5c7304
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Wed Nov 13 00:15:44 2019 -0600
+
+    Merge branch 'DashBranch'
+
+commit a5c73048028d0ed922ed751afe3f807216977e19
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Wed Nov 13 00:14:19 2019 -0600
+
+    Updated DoctorData
+    
+    DRC170003
+    JXN170530
+    AEH160430
+
+commit 00350deca39550b225841c4663f614b379ef1526
+Merge: 24c902c a360159
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Tue Nov 12 23:43:11 2019 -0600
+
+    Updated Validation
+    
+    DRC170003
+    JXN170530
+    AEH160430
+
+commit a36015915b40abc97031855015da22fddd286dd9
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Tue Nov 12 23:41:10 2019 -0600
+
+    Updated Validation
+    
+    DRC170003
+    JXN170530
+    AEH160430
+
+commit 24c902c1db82b03f06449f894d14b8b35a727ea0
+Author: hjs2457 <hjs2457@gmail.com>
+Date:   Tue Nov 12 21:01:34 2019 -0600
+
+    Registration bug fixes and improved input validation
+
+commit 14fefde939fa3f5d24779ba166dd51f3bdbb1e8d
+Author: pminduc <pminduc@gmail.com>
+Date:   Tue Nov 12 20:20:43 2019 -0600
+
+    Update aplite.js
+
+commit aacc90dcade45e3cdea64f89e3c3b98221995fcc
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Tue Nov 12 15:46:00 2019 -0600
+
+    Replaced some key data transfer on register frame
+
+commit 3b4f3d34933243bb3b8399b611c76a1f41e29927
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Tue Nov 12 15:37:16 2019 -0600
+
+    Replaced some key data transfer on register frame
+
+commit 3b0beadbee5f93b4003f2030fa34fc10f4b54afe
+Merge: 20cfa53 f55564e
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Tue Nov 12 14:57:51 2019 -0600
+
+    Merge branch 'master' of https://github.com/DoggyBagBrunch/3354.502
+
+commit f55564e0917e2ff90cef94f0999b8411851a5268
+Author: hjs2457 <hjs2457@gmail.com>
+Date:   Tue Nov 12 14:55:43 2019 -0600
+
+    Fixed registration frame
+
+commit 20cfa5310ab472eb885d3ecae6e15d54a2199be0
+Merge: 3eb6ff8 ffa5945
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Tue Nov 12 14:15:21 2019 -0600
+
+    Merge remote-tracking branch 'origin/InputValidation'
+
+commit 3eb6ff8d219ca40e358dcef6f1bee6a9457cf484
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Tue Nov 12 14:10:59 2019 -0600
+
+    Fixed registration form grid
+
+commit 6570343b98310a49953ab636716a81ada155b2ec
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Nov 11 19:28:39 2019 -0600
+
+    Same as before
+
+commit 06fd3c7a09afba4c9b444bdf522f43219342a2b1
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Nov 11 19:19:54 2019 -0600
+
+    Revert "Improved flexibility, removed makefile"
+    
+    This reverts commit cca5a8e2ca3cd5effbc938ee3ef6ecb2252bd23d.
+
+commit cca5a8e2ca3cd5effbc938ee3ef6ecb2252bd23d
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Nov 11 19:18:51 2019 -0600
+
+    Improved flexibility, removed makefile (it was offesive)
+
+commit aaa30af2bb2527690ae4c6820158e873186b4803
+Merge: e6b1d4b b911155
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Nov 11 17:03:21 2019 -0600
+
+    Updated master, merged registration branch
+
+commit b911155818bdecc3365834b358c5137016abb64f
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Nov 11 16:44:25 2019 -0600
+
+    Proofing registration, added unit tests towards RESTful api
+
+commit ffa59459307f53dae86257fc28434941fa866943
+Author: Antonio Herrera <37684203+Azureknight117@users.noreply.github.com>
+Date:   Fri Nov 8 16:03:05 2019 -0600
+
+    Create InputValidation.java
+    
+    Made an input validation class, can be called from any class (just make a InputValidation variable) to validate usernames, passwords, dates months, etc.
+
+commit bbd5f03b5d4abf69d56b3cece920dbf01a47e293
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Nov 8 15:33:06 2019 -0600
+
+    Registration works without grace
+
+commit e6b1d4b637b6a1426a01cb2827f23705b04ac5a3
+Merge: c115cab eeb9a35
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Nov 8 12:00:12 2019 -0600
+
+    Working loggin with backed refactor
+
+commit c115cab3f63dc54e9b42d10a06fe165ae1a93b47
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Nov 8 11:57:16 2019 -0600
+
+    eclipse this!
+
+commit 1ef0d0c2da2b8f56f29ed6a1f0b07a44596c0d1a
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Nov 8 11:51:50 2019 -0600
+
+    ready to merge to master
+
+commit eeb9a35505af2a4c011a0301ec493306a3fe4894
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Nov 8 11:45:32 2019 -0600
+
+    Solid refactor. technically broken registration
+
+commit 1f0e486d13adc97c230eb71b22cd2772632cb092
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Wed Nov 6 14:35:14 2019 -0600
+
+    big errs
+
+commit 4ecc9e88726631b54672e9bc56fe88d150eaf944
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Nov 3 13:09:32 2019 -0600
+
+    prepped to make home frame
+
+commit 26bcf358719a2c31f49e9eb8bce55dfe328f9c36
+Merge: 78c1230 00d1e60
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Nov 3 12:00:22 2019 -0600
+
+    Refactored and developed to a block with the db. asd asd to login
+
+commit 00d1e60a19fb3ccaaad96e7e4536535c904564b0
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Nov 3 10:30:43 2019 -0600
+
+    branch switch
+
+commit 6ba714e73375639d0d5440ba63adc39ce94770d0
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sat Nov 2 12:21:22 2019 -0500
+
+    regexed input, frontend packaging and sending to backend
+
+commit 3115655199b8bb77b2c7c781635d8fc22785f6cf
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Nov 1 19:04:42 2019 -0500
+
+    merge
+
+commit 0be89d38c8419d9e48ba8a9c5a060b24d0409695
+Merge: 063989f d62bb9d
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Nov 1 18:55:08 2019 -0500
+
+    merge from org
+
+commit d62bb9d2217384dbdf18f0bdb90a7d0a346d5bb1
+Author: hjs2457 <hjs2457@gmail.com>
+Date:   Sun Oct 27 17:53:05 2019 -0500
+
+    RegisterFrame bug fix and redesign and testing
+
+commit 063989f6fa0978784a99c49978bc6281e0160c23
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Oct 27 16:42:43 2019 -0500
+
+    Back to working order w/ restructered classes
+
+commit 3a921de49908c2d23aced34f5fc0f13d43297f20
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Oct 27 16:20:27 2019 -0500
+
+    Break c
+
+commit 78c1230743be74938d12c667e5d8b0a0fb67665a
+Merge: cc6491c e8fcff1
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Thu Oct 24 23:09:31 2019 -0500
+
+    Fixed it, swing sucks. Be careful of how you grab password values
+
+commit cc6491c948f62596d5fb634f960914953a677e93
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Thu Oct 24 22:20:46 2019 -0500
+
+    Merging master to bugfix
+
+commit da66d3c45826528303c666021f69ec25b6ba3346
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Thu Oct 24 22:02:11 2019 -0500
+
+    finalized bugfix, consistent hashes. dont touch it
+
+commit 85878736d89c8f4e1178313b208f72db8d9122c4
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Tue Oct 22 06:50:12 2019 -0500
+
+    Register form reincorporated
+
+commit 5d2850addbeee5c1c006a22b4f6157d97a210d83
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Tue Oct 22 06:39:12 2019 -0500
+
+    So far so good
+
+commit e8fcff11b8f5e605f8250cb7dbf1132a5d23eb44
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Mon Oct 21 23:51:19 2019 -0500
+
+    Remove Useless File
+
+commit 8805c783811a9ea8e7e39f10edc842e582c89e25
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Mon Oct 21 23:48:57 2019 -0500
+
+    JUnit Tests for main classes
+
+commit d5a82fe9b6c6c3fe486ba9b403ebf4910306720d
+Author: Antonio Herrera <37684203+Azureknight117@users.noreply.github.com>
+Date:   Mon Oct 21 22:36:58 2019 -0500
+
+    Update README.md
+
+commit fbfa3c4bf6c701a075da0b22f22542fe50d74a0f
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Mon Oct 21 16:59:09 2019 -0500
+
+    Clarified inputs
+
+commit 229bd03cdd85cb9dcb713ddb94ed52ed243d174c
+Author: thedashdude <thedashdude@yahoo.com>
+Date:   Sun Oct 20 21:06:11 2019 -0500
+
+    Update README.md
+
+commit 178201097c20ae76146479e9a822d6781c852381
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Oct 20 19:43:24 2019 -0500
+
+    reconfig git ignore
+
+commit 3284087b4b73c3129da1ee45dddf1b26986c875f
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Oct 20 19:42:18 2019 -0500
+
+    reconfig git ignore
+
+commit 3f258fe2d8bdf85294041ce82b9120d9c1104a12
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sun Oct 20 19:33:34 2019 -0500
+
+    marged kevin's classes and setup a registration frame for inputs. Needs work but safe to merge to master in order to branch again.
+
+commit 396eaa199b6d8565c23f50582b6c5791e194236a
+Merge: ad1b65e 5176a7d
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sat Oct 19 17:45:43 2019 -0500
+
+    Merge branch 'user' of https://github.com/DoggyBagBrunch/3354.502 into auth
+
+commit ad1b65e0c0785ccef52b7c8a453b6f4d57e5d150
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sat Oct 19 01:37:52 2019 -0500
+
+    got rid of node module cache
+
+commit d35623d3c65ca4b290f4ccc62e93d1b4b5b9f249
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sat Oct 19 01:34:50 2019 -0500
+
+    ran a clean and made a gitignore for node modules
+
+commit 7a827f437cdce9f745c61f066916238040a4e44b
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Sat Oct 19 00:43:38 2019 -0500
+
+    Login prototyped, light api and db infrastructure implemented
+
+commit 5176a7d8e084395b9002c1f746883805cbafc71f
+Author: kevinace17 <52866194+kevinace17@users.noreply.github.com>
+Date:   Fri Oct 18 12:29:35 2019 -0500
+
+    Created Doctor class, update methods, and refactor.
+
+commit 8b5b9727e08fb30b81e3de383710e9299a9f4013
+Author: Antonio Herrera <37684203+Azureknight117@users.noreply.github.com>
+Date:   Wed Oct 16 22:01:51 2019 -0500
+
+    Add files via upload
+    
+    Kevin and Antonio worked on the base User class and Patient class. As well as a driver. Classes just hold variables currently while driver gets the information to put into the classes.
+    Time spent: 1 hour 30 min
+
+commit 21a361c5f502172f14c38e25e358d82b0e6181f4
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Mon Oct 14 15:54:14 2019 -0500
+
+    Masked password and improved hashing alg implementation
+
+commit 2bd3b59afd1a4cb0a4f2c2eaec7784d6bfdecf02
+Author: hjs2457 <hjs2457@gmail.com>
+Date:   Sun Oct 13 15:55:05 2019 -0500
+
+    Started building all the frames. No need for unit testing yet.
+
+commit 295aedf8fe88adb12ff1950784c5b23557496a4f
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Tue Oct 8 10:54:24 2019 -0500
+
+    Ready to go
+
+commit 79c410f86d6bcb8e1dd81b041d864192fbe81ed9
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Oct 4 18:30:39 2019 -0500
+
+    readme update
+
+commit ce4931a8524fb15947094f1a2313d06f6dc245c5
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Oct 4 18:27:05 2019 -0500
+
+    readme update
+
+commit ad67b8b90d89f595a0a07051f6108339ac146f15
+Author: DoggyBagBrunch <andrew.ja.jensen48@gmail.com>
+Date:   Fri Oct 4 18:12:03 2019 -0500
+
+    fc
