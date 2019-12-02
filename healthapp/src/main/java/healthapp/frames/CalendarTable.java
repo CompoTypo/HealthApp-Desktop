@@ -12,16 +12,13 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * CalendarPane
- */
 public class CalendarTable extends JPanel implements ActionListener {
     private static final long serialVersionUID = 1L;
     
@@ -32,9 +29,14 @@ public class CalendarTable extends JPanel implements ActionListener {
     private UserData curUser;
 
 
+
+    /**
+     * 
+     * @param user
+     */
     public CalendarTable(UserData user) {
         this.curUser = user;
-        setLayout(new GridLayout(0, 7, 20, 20));
+        setLayout(new GridLayout(0, 7, 15, 40));
         setSize(1500, 900);
         this.cal = new GregorianCalendar();
         int today = this.cal.get(Calendar.DATE);
@@ -59,10 +61,8 @@ public class CalendarTable extends JPanel implements ActionListener {
         authStuff.put("Uname", this.curUser.getUname());
         authStuff.put("Hash", this.curUser.getHash());
         Map<String, String> dates = Requests.send(authStuff, "PUT", "/ref");
-        System.out.println(dates.toString());
 
         for (int i = 0; i < s - 1; i++) {
-
             for (int j = 0; j < s && dayCounter <= daysInMonth; j++) {
                 if (i == 0 && j < firstDay - 1) {
                     this.add(new JLabel(" "));
@@ -87,9 +87,17 @@ public class CalendarTable extends JPanel implements ActionListener {
         addDate.add(new JLabel("Add a new event"));
         addDate.addActionListener(this);
         this.add(addDate);
+        Date newDay = new Date(Long.parseLong(dates.get("RTime")));
+        add(new JLabel("Last Temp\n: " + dates.get("Temp")));
+        add(new JLabel("Last Pulse\n: " + dates.get("Pulse")));
+        add(new JLabel("Last Weight\n: " + dates.get("Wght")));
+        add(new JLabel("Last Systolic\n: " + dates.get("Sys")));
+        add(new JLabel("Last Diastolic\n: " + dates.get("Dia")));
+        add(new JLabel("Last time\n: " + newDay));
         setVisible(true);
-
     }
+
+
 
     public void actionPerformed(ActionEvent e) {
         new DailyLogFrame(this.curUser.getHash(), e.getActionCommand());
