@@ -11,6 +11,11 @@ public class EventFrame extends JFrame implements ActionListener {// inheriting 
     private static final long serialVersionUID = 1L;
     private JButton b;
 
+    /**
+     * /** constructor
+     * @param user userdata
+     * @return nothing
+     */
     EventFrame() {
 
         this.setLayout(new GridLayout(0, 2));
@@ -24,6 +29,11 @@ public class EventFrame extends JFrame implements ActionListener {// inheriting 
         setVisible(true);
     }
 
+    /**
+     * /** Method does blah blah blah
+     * @param e action
+     * @return nothing
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == b) {
 

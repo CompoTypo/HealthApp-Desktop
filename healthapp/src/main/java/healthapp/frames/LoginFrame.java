@@ -21,6 +21,10 @@ public class LoginFrame extends JFrame implements ActionListener {
 	private JPasswordField password;
 	private JButton login, register;
 	
+    /**
+     * /** constructor
+     * @return nothing
+     */
 	public LoginFrame() {
 		username = new JTextField("", 20);
 		password = new JPasswordField("", 20);
@@ -47,6 +51,11 @@ public class LoginFrame extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 
+	/**
+     * /** Method handles actions
+     * @param e action
+     * @return nothing
+     */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == login) {
 			String u = username.getText();

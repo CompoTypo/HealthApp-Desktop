@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -21,18 +22,17 @@ import java.awt.event.ActionListener;
 
 public class CalendarTable extends JPanel implements ActionListener {
     private static final long serialVersionUID = 1L;
-    
+
     private int s = 7;
     private LinkedList<JButton> days;
     private Calendar cal;
     private JButton addDate;
     private UserData curUser;
 
-
-
     /**
-     * 
-     * @param user
+     * /** constructor
+     * @param user userdata
+     * @return nothing
      */
     public CalendarTable(UserData user) {
         this.curUser = user;
@@ -43,7 +43,7 @@ public class CalendarTable extends JPanel implements ActionListener {
         int daysInMonth = this.cal.getActualMaximum(Calendar.DATE);
         this.cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_WEEK_IN_MONTH));
         int firstDay = this.cal.get(Calendar.DAY_OF_WEEK);
-        
+
         System.out.println(today + " " + daysInMonth + " " + firstDay);
         this.add(new JLabel("Sunday"));
         this.add(new JLabel("Monday"));
@@ -52,11 +52,10 @@ public class CalendarTable extends JPanel implements ActionListener {
         this.add(new JLabel("Thursday"));
         this.add(new JLabel("Friday"));
         this.add(new JLabel("Saturday"));
-        
-        
+
         days = new LinkedList<JButton>();
         int dayCounter = 1;
-        
+
         Map<String, Object> authStuff = new HashMap<String, Object>();
         authStuff.put("Uname", this.curUser.getUname());
         authStuff.put("Hash", this.curUser.getHash());
@@ -74,7 +73,7 @@ public class CalendarTable extends JPanel implements ActionListener {
                     } else {
                         day.setBackground(Color.LIGHT_GRAY);
                     }
-                    
+
                     day.addActionListener(this);
                     day.setActionCommand(Integer.toString(dayCounter));
                     days.addLast(day);
@@ -97,11 +96,13 @@ public class CalendarTable extends JPanel implements ActionListener {
         setVisible(true);
     }
 
-
-
+    /**
+     * /** Method handles actions
+     * @param e action
+     * @return nothing
+     */
     public void actionPerformed(ActionEvent e) {
         new DailyLogFrame(this.curUser.getHash(), e.getActionCommand());
     }
 
 }
-

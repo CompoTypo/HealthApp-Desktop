@@ -11,6 +11,11 @@ import javax.swing.*;
 public class HomeFrame extends JFrame implements ActionListener {// inheriting JFrame
    private static final long serialVersionUID = 1L;
 
+   /**
+     * /** Constructor
+     * @param user userdata
+     * @return nothing
+     */
    HomeFrame(UserData user) {
       System.out.println(user.getFirstname());
       this.setLayout(new FlowLayout());
@@ -21,6 +26,7 @@ public class HomeFrame extends JFrame implements ActionListener {// inheriting J
       setVisible(true);
    }
 
+   
    public void actionPerformed(ActionEvent e) {
    }
 }

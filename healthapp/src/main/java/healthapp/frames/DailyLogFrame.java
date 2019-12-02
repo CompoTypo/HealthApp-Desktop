@@ -26,6 +26,11 @@ public class DailyLogFrame extends JFrame implements ActionListener {
 
     JTextField notifyOutput = new JTextField(16);
 
+    /**
+     * /** constructor
+     * @param user userdata
+     * @return nothing
+     */
     public DailyLogFrame(String h, String daynum) {
         this.hash = h;
         Log1 = new JTextField("", 10);
@@ -65,6 +70,11 @@ public class DailyLogFrame extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    /**
+     * /** Method handles actions
+     * @param e action
+     * @return nothing
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == setLog) {
             String w = Log1.getText();

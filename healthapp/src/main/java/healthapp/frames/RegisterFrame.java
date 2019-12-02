@@ -25,6 +25,10 @@ public class RegisterFrame extends JFrame implements ActionListener {
     private boolean doctor = false;
     private String gender = "";
 
+    /**
+     * /** constructor
+     * @return nothing
+     */
     RegisterFrame() {
         this.firstname = new JTextField("Albert", 15);
         this.lastname = new JTextField("Einstein", 15);
@@ -106,6 +110,11 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
+    /**
+     * /** Method checks is int
+     * @param s string of int
+     * @return boolean
+     */
     public static boolean isInteger(final String s) {
         try {
             Integer.parseInt(s);
@@ -118,6 +127,11 @@ public class RegisterFrame extends JFrame implements ActionListener {
         return true;
     }
 
+    /**
+     * /** Method handles actions
+     * @param e action
+     * @return nothing
+     */
     public void actionPerformed(final ActionEvent event) {
 
         if (event.getSource() == patientRadio) {
