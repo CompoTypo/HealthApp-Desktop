@@ -15,6 +15,9 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
+/**
+ * Requests sends data to the database
+ */
 public class Requests {
 
     private static Map<String,String> splitToMap(String l) {
@@ -53,7 +56,13 @@ public class Requests {
             return null;
         }
     }
-
+    /**
+     * Returns user or log data
+     * @param p the data
+     * @param type the type of request
+     * @param ext the statelist address
+     * @return the user or log data
+     */
     public static Map<String,String> send(Map<String, Object> p, String type, String ext) {
         String apiURL = "http://127.0.0.1";
         String apiPort = ":8000";

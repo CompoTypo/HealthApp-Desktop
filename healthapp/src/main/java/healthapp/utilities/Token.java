@@ -13,12 +13,18 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 /**
- * token
+ * Token verify and generate JSOM tokens
  */
 public class Token {
     private static String savedToken;
     private static final String secret = "secret";
 
+    /**
+     * Sends a token and returns it
+     * @param subject the subject
+     * @param body the data
+     * @return the token
+     */
     public static String createJWT(String subject, Map<String, Object> body) {
         String token = "";
         try {
@@ -39,7 +45,11 @@ public class Token {
         return token;
     }
 
-
+    /**
+     * Returns part of the token
+     * @param t the token
+     * @return returns part of the token
+     */
     public static String checkJWT(String t) {
         try {
             Algorithm alg = Algorithm.HMAC256(secret);
