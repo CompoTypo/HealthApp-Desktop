@@ -9,7 +9,9 @@ import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;
 
 
-
+/**
+ *  Auth Authorizes the User, it is the starting point for the data request
+ */
 public class Auth {
     private String hashPassword(String w) throws NoSuchAlgorithmException {
         final MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -28,7 +30,12 @@ public class Auth {
         }
         return hexString.toString();
     }
-
+    /**
+     * Hashes and sends usernames passwords given a username and password
+     * @param u the username
+     * @param p the password
+     * @return a user as a Map
+     */
     public Map<String,String> Authenticate(String u, String p) {
         try {
             String uh = hashPassword(u);
@@ -45,7 +52,11 @@ public class Auth {
         }
         return null;
     }
-
+    /**
+     * Resgisters a user given a Userdata and String
+     * @param newUser the user data
+     * @param p the password
+     */
     public void Register(UserData newUser, String p) {
         try {
             Map<String, Object> params = new HashMap<>();
