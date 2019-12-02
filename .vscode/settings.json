@@ -1,3 +1,4 @@
 {
-    "jest.autoEnable": false
+    "jest.autoEnable": false,
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
